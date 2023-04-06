@@ -55,6 +55,10 @@ html{
 body{
   height: 100vh;
 }
+.header{
+  height: 13%;
+  background-color: aquamarine;
+}
 .header__offer{
   display: flex;
   height: 24%;
@@ -65,7 +69,4 @@ body{
 }
 .header__navbar{
   display: flex;
-}
-.header{
-  height: 13%;
 }
