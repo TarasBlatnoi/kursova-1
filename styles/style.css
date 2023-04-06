@@ -1,3 +1,7 @@
+@font-face {
+  font-family: Ermilov;
+  src: url(../fonts/Ermilov-bold.otf);
+}
 *,
 *::after,
 *::before {
@@ -9,4 +13,8 @@ img {
   display: block;
   max-width: 100%;
   height: auto;
+}
+p{
+  font-family: Ermilov;
+  font-size: 5rem;
 }
