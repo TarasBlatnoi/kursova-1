@@ -2,6 +2,7 @@
   font-family: Ermilov;
   src: url(../fonts/Ermilov-bold.otf);
 }
+/*Reset*/
 *,
 *::after,
 *::before {
@@ -13,4 +14,58 @@ img {
   display: block;
   max-width: 100%;
   height: auto;
+}
+input,
+button,
+textarea{
+  font: inherit;
+}
+/*Variables*/
+:root{
+  /*COLORS*/
+  --BG-COLOR: #FBFAFF;
+  --FC: #1C1C1C;
+  --HEADER-COLOR: #1C1C1C;
+  --FC-HEADER: #FBFAFF;
+  /*Fonts*/
+  --FF-OFFER: Arial;
+  --FF: Ermilov;
+  --FS: clamp(1rem, 2.2vh, 1.5rem);
+  --FS-HEADER: clamp(0.6rem, 1vh, 0.7rem);
+  /*PADDING*/
+  --PADDDING-OFFER: 0.3em;
+}
+/*UTILITY CLASSES*/
+.offscreen {
+  position: absolute;
+  left: -10000px;
+}
+.nowrap{
+  white-space: nowrap;
+}
+.center {
+  text-align: center;
+}
+html{
+  scroll-behavior: smooth;
+  font-size: var(--FS);
+  font-family: var(--FF);
+  background-color: var(--BG-COLOR);
+}
+body{
+  height: 100vh;
+}
+.header__offer{
+  display: flex;
+  height: 24%;
+  justify-content: space-around;
+  align-items: center;
+  font-size: var(--FS-HEADER);
+  font-family: var(--FF-OFFER);
+}
+.header__navbar{
+  display: flex;
+}
+.header{
+  height: 13%;
 }
