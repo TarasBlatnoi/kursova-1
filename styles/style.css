@@ -81,7 +81,7 @@ label[for="search"] {
   background-repeat: no-repeat;
   background-position: right center;
   height: 2rem;
-  width: 16rem;
+  width: 15rem;
   padding: 0 0.6em;
   background-color: #fbfaff;
   border-radius: 7px;
@@ -101,7 +101,7 @@ ul {
   justify-content: center;
 }
 nav li {
-  margin-left: 2em;
+  margin-left: min(2em, 30px);
   font-size: 1.32rem;
 }
 .white-spot {
@@ -109,21 +109,19 @@ nav li {
   right: 0px;
   top: 0px;
   z-index: 0;
-  width: calc(var(--index) * 42.8);
+  width: 63.5%;
 }
 .language {
   padding-top: 0.1em;
-  margin-right: 2em;
+  margin-right: 0.5em;
+  margin-left: 9px;
 }
 
 .icon {
   width: 1.5em;
-  margin-left: 1.1em;
+  margin-left: min(1.6em, 25px);
 }
 .logo {
-  width: 12rem;
-}
-
-.header__icons {
-  margin-left: 3em;
+  width: 10rem;
+  margin-right: 10px;
 }
