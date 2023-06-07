@@ -57,7 +57,7 @@ html {
     background-color: var(--BG-COLOR);
 }
 body {
-    height: 200vh;
+    height: 300vh;
     background-color: #1c1c1c;
 }
 .header {
@@ -167,14 +167,18 @@ nav li {
     width: 39px;
     height: 39px;
     left: 66em;
-    top: 14.5em;
+    top: 11.3em;
+    transition: 0.7s;
+}
+.icon-filter-rotate{
+    transform: rotate(180deg);
 }
 .Sorting-dropdown{
-    min-width: 8em;
+    min-width: 11em;
     position: absolute;
     height: 43px;
     left: 35em;
-    top: 6.39em;
+    top: 4.7em;
     margin-right: 1em;
 
     font-family: var(--FFG);
@@ -225,4 +229,70 @@ nav li {
 .menu-open{
     display: block;
     opacity: 1;
+}
+
+.Line-Vert{
+    position: absolute;
+    top: 20em;
+    left: 23em;
+}
+.DivGender{
+    position: absolute;
+    left:2em;
+    top:20em;
+    font-family: var(--FFG);
+    color: #fbfaff;
+}
+.Gender{
+    font-size: 3rem;
+}
+.gender-form{
+    padding-top: 0.5em;
+    font-size: 2rem;
+}
+input[type="checkbox"] {
+    display: none;
+}
+label {
+    display: inline-block;
+    margin-bottom: 15px;
+    position: relative;
+    padding-left: 1.2em;
+    cursor: pointer;
+}
+
+label:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 0.8em;
+    height: 0.8em;
+    border-radius: 20%;
+    border: 2px solid #fbfaff;
+}
+
+input[type="checkbox"]:checked + label:before {
+    background-color: #F9D423;
+}
+
+.Line-Gor{
+    position: absolute;
+    top:33em;
+    left:3em;
+}
+
+.DivRun{
+    position: absolute;
+    left:2em;
+    top:36em;
+    font-family: var(--FFG);
+    color: #fbfaff;
+}
+.TypeRun{
+    font-size: 3rem;
+}
+.run-form{
+    padding-top: 0.5em;
+    font-size: 2rem;
 }

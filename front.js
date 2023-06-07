@@ -1,9 +1,25 @@
 
 //Catalog
 
+//Hide-Filter
+
+const HideFilter = document.querySelectorAll('.Hide-Filter');
+HideFilter.forEach(HideFilter => {
+
+    const selectHide = HideFilter.querySelector('.Select-Hide');
+    const icon = HideFilter.querySelector('.icon-filter');
+
+
+    selectHide.addEventListener('click', () => {
+        icon.classList.toggle('icon-filter-rotate');
+    });
+});
+
 //SortingButton
+
 const dropdown = document.querySelectorAll('.Sorting-dropdown');
 dropdown.forEach(dropdown => {
+
 
     const select = dropdown.querySelector('.select');
     const caret = dropdown.querySelector('.caret');
@@ -13,8 +29,6 @@ dropdown.forEach(dropdown => {
 
 
     select.addEventListener('click' , () => {
-
-        select.classList.toggle('caret-clicked');
 
         caret.classList.toggle('caret-rotate');
 
