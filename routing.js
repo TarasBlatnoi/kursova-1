@@ -1,19 +1,26 @@
 "use strict";
-
 const http = require("http");
 const fs = require("fs");
-const path = require("path");
 const PORT = 5000;
 const getFilesFromDir = require("./getFilesFromDir");
 const readFilesDir = require("./readFilesDir");
+const catalog = fs.readFileSync("./Catalog.html", "utf8");
 const index = fs.readFileSync("./index.html", "utf8");
-const style = fs.readFileSync("./styles/style.css", "utf8");
+const stylesNames = getFilesFromDir("./styles");
+const styles = readFilesDir(stylesNames, "styles");
 const imagesNames = getFilesFromDir("./images");
 const images = readFilesDir(imagesNames, "images");
+const fontNames = getFilesFromDir("./fonts");
+const fonts = readFilesDir(fontNames, "fonts");
+const frontNames = getFilesFromDir("./scripts");
+const front = readFilesDir(frontNames, "scripts");
 const routing = {
   "/": index,
-  "/styles/style.css": style,
+  "/Catalog.html": catalog,
+  "/styles/*": styles,
   "/images/*": images,
+  "/fonts/*": fonts,
+  "/scripts/*": front,
   "/api/v1/login": () => {},
 };
 const matching = [];
@@ -46,11 +53,12 @@ const router = (req) => {
 http
   .createServer((req, res) => {
     const file = router(req);
-
-    if (Buffer.isBuffer(file)) {
+    const url = req.url;
+    if (url.endsWith(".svg")) {
       res.setHeader("Content-Type", "image/svg+xml");
+    } else if (url.endsWith(".png")) {
+      res.setHeader("Content-Type", "image/png");
     }
-
     res.end(file || "Not found");
   })
   .listen(PORT);
