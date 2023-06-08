@@ -78,12 +78,9 @@ nav {
     position: relative;
     z-index: 101;
 }
-label[for="search"] {
-    display: none;
-}
 
-#search {
-    background-image: url("../images/search.svg");
+
+#search-input {
     background-repeat: no-repeat;
     background-position: right center;
     height: 2rem;
@@ -93,6 +90,13 @@ label[for="search"] {
     border-radius: 7px;
     border: 1px #fbfaff solid;
     margin-top: 0.4em;
+}
+#search{
+    background:none;
+    border:none;
+    height: 30px;
+    width: 30px;
+
 }
 .header__navbar {
     display: flex;
@@ -236,20 +240,42 @@ nav li {
     top: 20em;
     left: 23em;
 }
-.DivGender{
+
+.DivAllFilter {
     position: absolute;
-    left:2em;
-    top:20em;
+    left: 2em;
+    top: 21em;
     font-family: var(--FFG);
     color: #fbfaff;
 }
-.Gender{
+
+.All-form{
+    font-size: 2rem;
+}
+
+.Line-Gor{
+    position: absolute;
+    top:35em;
+    left:3em;
+}
+
+.DivRun{
+    position: absolute;
+    left:2em;
+    top:25em;
+    font-family: var(--FFG);
+    color: #fbfaff;
+}
+
+.TypeRun{
     font-size: 3rem;
 }
-.gender-form{
+
+.run-form{
     padding-top: 0.5em;
     font-size: 2rem;
 }
+
 input[type="checkbox"] {
     display: none;
 }
@@ -276,23 +302,51 @@ input[type="checkbox"]:checked + label:before {
     background-color: #F9D423;
 }
 
-.Line-Gor{
-    position: absolute;
-    top:33em;
-    left:3em;
+
+
+#products {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-auto-flow: dense;
+    grid-column-gap: 0;
+    padding: 4em 0;
+    margin-left: 27em;
 }
 
-.DivRun{
-    position: absolute;
-    left:2em;
-    top:36em;
-    font-family: var(--FFG);
-    color: #fbfaff;
+.card {
+    background-color: #fbfaff;
+    border-radius: 0.5em;
+    width: 18em;
+    height: 22em;
+    margin-bottom: 2em;
+
 }
-.TypeRun{
-    font-size: 3rem;
+
+.image-container {
+    text-align: center;
 }
-.run-form{
-    padding-top: 0.5em;
-    font-size: 2rem;
+
+img {
+    max-width: 100%;
+    object-fit: contain;
+}
+.container{
+    padding-top: 1em;
+    color: #1c1c1c;;
+}
+h3{
+    margin-left: 1em;
+    font-size: 1rem;
+    color: #1c1c1c;
+    font-family: var(--FF);
+}
+h5{
+    margin-top: 2em;
+    margin-left: 1em;
+    font-size: 1rem;
+    color: #1c1c1c;
+    font-family: var(--FF);
+}
+.hide{
+    display: none;
 }
