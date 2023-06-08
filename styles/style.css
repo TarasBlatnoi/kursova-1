@@ -96,8 +96,11 @@ label[for="search"] {
   border: 1px #fbfaff solid;
   margin-top: 0.4em;
 }
-.header__navbar {
+.navbar {
+  top: 0;
+  width: 100%;
   display: flex;
+  z-index: 102;
   justify-content: space-between;
   align-items: center;
   padding: 1em 1em;
@@ -120,8 +123,7 @@ nav li {
 }
 
 .icon {
-  width: 1.5em;
-  margin-left: min(1.6em, 25px);
+  width: 1.8em;
 }
 .logo {
   width: 10rem;
@@ -141,6 +143,24 @@ nav li {
   z-index: 0;
   width: 87%;
 }
+.header__icons {
+  width: 10%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.cart-btn {
+  position: relative;
+  display: flex;
+  cursor: pointer;
+  justify-content: center;
+}
+.cart-items {
+  position: absolute;
+  font-size: 0.8em;
+  top: 0.65em;
+}
+
 .rectangle {
   position: absolute;
   top: 217%;
@@ -148,7 +168,14 @@ nav li {
   z-index: 0;
   width: 24%;
 }
-
+.icons__wrapper {
+  position: flex;
+  flex-direction: row;
+}
+.cart-btn {
+  position: relative;
+  cursor: pointer;
+}
 .white-spot-mid-footpr-1 {
   position: absolute;
   top: 103%;

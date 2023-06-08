@@ -1,106 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Document</title>
-  <link rel="stylesheet" href="styles/StyleCatalog.css" />
-
-
-</head>
-<body>
-<div class="header__offer">
-  <p>До кінця розпродажу 4д. 35хв. 30сек. &vert; Дізнатись більше</p>
-</div>
-<header class="header">
-  <nav class="header__navbar">
-    <img class="logo" src="images/Terabade.svg" alt="Terabade" />
-    <div id="search-container">
-      <input type="search" id="search-input" placeholder="Пошук"/>
-      <button id="search"><img class="SearchPH" src="images/search.svg" alt="Search" /></button>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="styles/StyleCatalog.css" />
+  </head>
+  <body>
+    <div class="header__offer">
+      <p>До кінця розпродажу 4д. 35хв. 30сек. &vert; Дізнатись більше</p>
     </div>
-    <ul class="Navbar-UL">
-      <li>Чоловіки</li>
-      <li>Жінки</li>
-      <li>Діти</li>
-      <li>Розпродаж</li>
-      <li>Про нас</li>
-    </ul>
-    <div class="header__icons">
-      <img class="icon" src="images/user.svg" alt="user" />
-      <img class="icon" src="images/heart.svg" alt="heart" />
-      <img class="icon" src="images/basket.svg" alt="basket" />
+    <header class="header">
+      <nav class="header__navbar">
+        <img class="logo" src="images/Terabade.svg" alt="Terabade" />
+        <div id="search-container">
+          <input type="search" id="search-input" placeholder="Пошук" />
+          <button id="search">
+            <img class="SearchPH" src="images/search.svg" alt="Search" />
+          </button>
+        </div>
+        <ul class="Navbar-UL">
+          <li>Чоловіки</li>
+          <li>Жінки</li>
+          <li>Діти</li>
+          <li>Розпродаж</li>
+          <li>Про нас</li>
+        </ul>
+        <div class="header__icons">
+          <img class="icon" src="images/user.svg" alt="user" />
+          <img class="icon" src="images/heart.svg" alt="heart" />
+          <div class="cart-btn">
+            <span class="nav-icon">
+              <img class="icon" src="images/basket.svg" alt="basket" />
+            </span>
+            <div class="cart-items">0</div>
+          </div>
+        </div>
+        <p class="language">UA</p>
+      </nav>
+    </header>
+    <div>
+      <img class="white-spot" src="images/Navbar.png" alt="white-spot" />
     </div>
 
-    <p class="language">UA</p>
-  </nav>
-</header>
-<div>
-  <img class="white-spot" src="images/Navbar.png" alt="white-spot" />
-</div>
+    <div class="Main">
+      <h1 class="Man-Title">Чоловіче Взуття</h1>
 
-<div class="Main">
-
-  <h1 class="Man-Title">Чоловіче Взуття</h1>
-
-  <div class="Hide-Filter">
-    <div class="Select-Hide">
-      <span class="Man-Title2">Приховати фільтр</span>
-      <img class="icon-filter" src="images/Filter.svg" alt="Hide" />
+      <div class="Hide-Filter">
+        <div class="Select-Hide">
+          <span class="Man-Title2">Приховати фільтр</span>
+          <img class="icon-filter" src="images/Filter.svg" alt="Hide" />
+        </div>
+      </div>
     </div>
-  </div>
 
+    <div class="Sorting-dropdown">
+      <div class="select">
+        <span class="selected"> Сортування </span>
+        <div class="caret">
+          <img class="icon-sort" src="images/Caret-Sort.svg" alt="Hide" />
+        </div>
+      </div>
+      <ul class="menu">
+        <li>Новинки</li>
+        <li>Ціна: Висока-Низька</li>
+        <li>Ціна: Низька-Висока</li>
+      </ul>
+    </div>
 
+    <div class="wrapper">
+      <img class="Line-Vert" src="images/Vertical.svg" alt="Hide" />
 
-</div>
+      <div class="DivAllFilter">
+        <form class="All-form">
+          <input
+            type="checkbox"
+            class="input-value"
+            id="All"
+            name="gender"
+            value="All"
+            onclick="filterProduct('all')"
+          />
+          <label for="All">Усі</label><br />
+        </form>
+      </div>
 
-<div class="Sorting-dropdown">
-  <div class="select">
-    <span class="selected"> Сортування </span>
-    <div class="caret"> <img class="icon-sort" src="images/Caret-Sort.svg" alt="Hide" /> </div>
-  </div>
-  <ul class="menu">
-    <li> Новинки </li>
-    <li> Ціна: Висока-Низька </li>
-    <li> Ціна: Низька-Висока </li>
-  </ul>
-</div>
-</div>
+      <img class="Line-Gor" src="images/Gorizontal.svg" alt="Hide" />
 
+      <div class="DivRun">
+        <span class="TypeRun"> Тип Бігу </span>
+        <form class="run-form">
+          <input
+            type="checkbox"
+            class="input-value"
+            id="Every"
+            name="gender"
+            value="male"
+            onclick="filterProduct('Щоденний')"
+          />
+          <label for="Every">Щоденний</label><br />
+          <input
+            type="checkbox"
+            class="input-value"
+            id="Road"
+            name="gender"
+            value="female"
+            onclick="filterProduct('Дорожній')"
+          />
+          <label for="Road">Дорожній</label><br />
+        </form>
+      </div>
 
-<div class="wrapper">
-
-  <img class="Line-Vert" src="images/Vertical.svg" alt="Hide" />
-
-  <div class="DivAllFilter">
-    <form class="All-form">
-      <input type="checkbox" class="input-value" id="All" name="gender" value="All" onclick="filterProduct('all')">
-      <label for="All">Усі</label><br>
-    </form>
-  </div>
-
-
-  <img class="Line-Gor" src="images/Gorizontal.svg" alt="Hide" />
-
-
-  <div class="DivRun">
-    <span class="TypeRun"> Тип Бігу </span>
-    <form class="run-form">
-      <input type="checkbox" class="input-value" id="Every" name="gender" value="male" onclick="filterProduct('Щоденний')">
-      <label for="Every">Щоденний</label><br>
-      <input type="checkbox" class="input-value" id="Road" name="gender" value="female" onclick="filterProduct('Дорожній')">
-      <label for="Road">Дорожній</label><br>
-    </form>
-  </div>
-
-  <div id="products"></div>
-
-</div>
-
-
-
-</body>
-<script src="CatalogJS/Back.js"></script>
-<script src="CatalogJS/front.js"></script>
+      <div id="products"></div>
+    </div>
+  </body>
+  <script src="CatalogJS/Back.js"></script>
+  <script src="CatalogJS/front.js"></script>
 </html>
