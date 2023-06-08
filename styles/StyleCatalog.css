@@ -196,10 +196,9 @@ nav li {
   min-width: 11em;
   position: absolute;
   height: 43px;
-  left: 35em;
+  left: 34em;
   top: 4.7em;
   margin-right: 1em;
-
   font-family: var(--FFG);
   font-size: 2rem;
 }
