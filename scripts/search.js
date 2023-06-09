@@ -1,79 +1,73 @@
-let products = {
-  data: [
-    {
-      productName: "Nike Invincible",
-      category: "Дорожній",
-      price: "78",
-      image: "images/Shoes1.png",
-    },
+// Check if the JSON data is already stored in localStorage
+let jsonData = localStorage.getItem("productsData");
 
-    {
-      productName: "Nike Phantom GX Club TF",
-      category: "Щоденний",
-      price: "64",
-      image: "images/Shoes2.png",
-    },
+if (jsonData) {
+  // If the data is available, parse it and process the products
+  processProducts(JSON.parse(jsonData));
+} else {
+  // Fetch the JSON file and store the data in localStorage
+  fetch("/api/v1/products.json")
+    .then((response) => response.json())
+    .then((data) => {
+      // Store the JSON data in localStorage
+      localStorage.setItem("productsData", JSON.stringify(data));
 
-    {
-      productName: "Nike Air Force LX",
-      category: "Щоденний",
-      price: "81",
-      image: "images/Shoes3.png",
-    },
-    {
-      productName: "Zion 2 PF",
-      category: "Щоденний",
-      price: "94",
-      image: "images/Shoes4.png",
-    },
-    {
-      productName: "Nike Dunk Low Disrupt 2",
-      category: "Дорожній",
-      price: "73",
-      image: "images/Shoes5.png",
-    },
-    {
-      productName: "Jordan Play",
-      category: "Щоденний",
-      price: "46",
-      image: "images/Shoes6.png",
-    },
-    {
-      productName: "Nike Kiger 9",
-      category: "Дорожній",
-      price: "89",
-      image: "images/Shoes7.png",
-    },
-  ],
-};
-
-for (let i of products.data) {
-  let card = document.createElement("div");
-
-  card.classList.add("card", i.category, "hide");
-
-  let imgContainer = document.createElement("div");
-  imgContainer.classList.add("image-container");
-
-  let image = document.createElement("img");
-  image.setAttribute("src", i.image);
-  imgContainer.appendChild(image);
-  card.appendChild(imgContainer);
-
-  let container = document.createElement("div");
-  container.classList.add("container");
-
-  let name = document.createElement("h3");
-  name.classList.add("product-name");
-  name.innerText = i.productName.toUpperCase();
-  container.appendChild(name);
-
-  let price = document.createElement("h5");
-  price.innerText = "$" + i.price;
-  container.appendChild(price);
-  card.appendChild(container);
-  document.getElementById("products").appendChild(card);
+      // Process the products
+      processProducts(data);
+    })
+    .catch((error) => {
+      console.log("Error fetching the JSON file:", error);
+    });
 }
+
+function processProducts(data) {
+  for (let i of data.data) {
+    // Rest of the code to create product cards...
+  }
+}
+// Fetch the JSON file
+fetch("/api/v1/products.json")
+  .then((response) => response.json())
+  .then((data) => {
+    for (let i of data.data) {
+      let card = document.createElement("div");
+
+      card.classList.add("card", i.category, "hide");
+
+      let imgContainer = document.createElement("div");
+      imgContainer.classList.add("image-container");
+
+      let image = document.createElement("img");
+      image.setAttribute("src", i.image);
+      imgContainer.appendChild(image);
+      card.appendChild(imgContainer);
+
+      let container = document.createElement("div");
+      container.classList.add("container");
+
+      let name = document.createElement("h3");
+      name.classList.add("product-name");
+      name.innerText = i.productName.toUpperCase();
+      container.appendChild(name);
+
+      let price = document.createElement("h5");
+      price.innerText = "$" + i.price;
+      container.appendChild(price);
+      card.appendChild(container);
+      document.getElementById("products").appendChild(card);
+
+      // Create the "Add to Shopping Cart" button
+      let addToCartBtn = document.createElement("button");
+      addToCartBtn.innerText = "Add to Shopping Cart";
+      addToCartBtn.classList.add("add-to-cart-btn");
+      card.appendChild(addToCartBtn);
+
+      document.getElementById("products").appendChild(card);
+    }
+  })
+  .catch((error) => {
+    console.log("Error fetching the JSON file:", error);
+  });
 
 function filterProduct(value) {
   let input = document.querySelectorAll(".input-value");
