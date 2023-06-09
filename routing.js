@@ -14,6 +14,7 @@ const fontNames = getFilesFromDir("./fonts");
 const fonts = readFilesDir(fontNames, "fonts");
 const frontNames = getFilesFromDir("./scripts");
 const front = readFilesDir(frontNames, "scripts");
+const products = fs.readFileSync("./products.json", "utf8");
 const routing = {
   "/": index,
   "/Catalog.html": catalog,
@@ -21,7 +22,7 @@ const routing = {
   "/images/*": images,
   "/fonts/*": fonts,
   "/scripts/*": front,
-  "/api/v1/login": () => {},
+  "/api/v1/products.json": products,
 };
 const matching = [];
 for (const key in routing) {
@@ -58,6 +59,8 @@ http
       res.setHeader("Content-Type", "image/svg+xml");
     } else if (url.endsWith(".png")) {
       res.setHeader("Content-Type", "image/png");
+    } else if (url.endsWith(".json")) {
+      res.setHeader("Content-Type", "application/json");
     }
     res.end(file || "Not found");
   })
