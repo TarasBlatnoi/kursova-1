@@ -17,10 +17,8 @@ class Products {
     fetch();
   }
 }
-
-//display products
+// display products
 class UI {}
-
 //local storage
 class Storage {}
 

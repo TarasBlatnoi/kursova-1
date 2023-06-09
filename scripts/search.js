@@ -1,13 +1,18 @@
+// Check if the JSON data is already stored in localStorage
 let jsonData = localStorage.getItem("productsData");
 
 if (jsonData) {
+  // If the data is available, parse it and process the products
   processProducts(JSON.parse(jsonData));
 } else {
+  // Fetch the JSON file and store the data in localStorage
   fetch("/api/v1/products.json")
     .then((response) => response.json())
     .then((data) => {
+      // Store the JSON data in localStorage
       localStorage.setItem("productsData", JSON.stringify(data));
 
+      // Process the products
       processProducts(data);
     })
     .catch((error) => {
@@ -17,9 +22,10 @@ if (jsonData) {
 
 function processProducts(data) {
   for (let i of data.data) {
+    // Rest of the code to create product cards...
   }
 }
-
+// Fetch the JSON file
 fetch("/api/v1/products.json")
   .then((response) => response.json())
   .then((data) => {
@@ -50,6 +56,7 @@ fetch("/api/v1/products.json")
       card.appendChild(container);
       document.getElementById("products").appendChild(card);
 
+      // Create the "Add to Shopping Cart" button
       let addToCartBtn = document.createElement("button");
       addToCartBtn.innerText = "Add to Shopping Cart";
       addToCartBtn.classList.add("add-to-cart-btn");

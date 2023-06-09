@@ -10,6 +10,10 @@
       crossorigin="anonymous"
     ></script>
     <link rel="stylesheet" href="styles/style.css" />
+    <script
+      src="https://kit.fontawesome.com/262f393da5.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
     <div class="header__offer">
@@ -68,6 +72,7 @@
       </p>
       <button class="hype-order">замовити</button>
     </main>
+    <!-- cart -->
     <div class="cart-overlay">
       <div class="cart">
         <span class="close-cart">
@@ -75,12 +80,27 @@
         </span>
         <h2>Ваша корзина</h2>
         <div class="cart-content">
+          <!-- cart item-->
           <div class="cart-item">
-            <img src="images/Shoes1.png" alt="product" />
+            <img src="images/Shoes1.png" alt="Shoes1.png" />
             <div>
-              <h4 class="nowrap">Nike invisible</h4>
+              <h4 class="nowrap">Nike Invincible</h4>
               <h5>$70</h5>
-              <span class="remove-item">Видалити</span>
+              <span class="remove-item">видалити</span>
+            </div>
+            <div class="icons-change">
+              <i class="fas fa-chevron-up"></i>
+              <p class="item-amount">1</p>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+          </div>
+          <!-- end of cart item-->
+          <div class="cart-item">
+            <img src="images/Shoes1.png" alt="Shoes1.png" />
+            <div>
+              <h4 class="nowrap">Nike Invincible</h4>
+              <h5>$70</h5>
+              <span class="remove-item">видалити</span>
             </div>
             <div class="icons-change">
               <i class="fas fa-chevron-up"></i>
@@ -89,11 +109,11 @@
             </div>
           </div>
           <div class="cart-item">
-            <img src="images/Shoes1.png" alt="product" />
+            <img src="images/Shoes1.png" alt="Shoes1.png" />
             <div>
-              <h4 class="nowrap">Nike invisible</h4>
+              <h4 class="nowrap">Nike Invincible</h4>
               <h5>$70</h5>
-              <span class="remove-item">Видалити</span>
+              <span class="remove-item">видалити</span>
             </div>
             <div class="icons-change">
               <i class="fas fa-chevron-up"></i>
@@ -102,11 +122,11 @@
             </div>
           </div>
           <div class="cart-item">
-            <img src="images/Shoes1.png" alt="product" />
+            <img src="images/Shoes1.png" alt="Shoes1.png" />
             <div>
-              <h4 class="nowrap">Nike invisible</h4>
+              <h4 class="nowrap">Nike Invincible</h4>
               <h5>$70</h5>
-              <span class="remove-item">Видалити</span>
+              <span class="remove-item">видалити</span>
             </div>
             <div class="icons-change">
               <i class="fas fa-chevron-up"></i>
@@ -115,11 +135,11 @@
             </div>
           </div>
           <div class="cart-item">
-            <img src="images/Shoes1.png" alt="product" />
+            <img src="images/Shoes1.png" alt="Shoes1.png" />
             <div>
-              <h4 class="nowrap">Nike invisible</h4>
+              <h4 class="nowrap">Nike Invincible</h4>
               <h5>$70</h5>
-              <span class="remove-item">Видалити</span>
+              <span class="remove-item">видалити</span>
             </div>
             <div class="icons-change">
               <i class="fas fa-chevron-up"></i>
@@ -128,11 +148,11 @@
             </div>
           </div>
           <div class="cart-item">
-            <img src="images/Shoes1.png" alt="product" />
+            <img src="images/Shoes1.png" alt="Shoes1.png" />
             <div>
-              <h4 class="nowrap">Nike invisible</h4>
+              <h4 class="nowrap">Nike Invincible</h4>
               <h5>$70</h5>
-              <span class="remove-item">Видалити</span>
+              <span class="remove-item">видалити</span>
             </div>
             <div class="icons-change">
               <i class="fas fa-chevron-up"></i>
@@ -141,37 +161,11 @@
             </div>
           </div>
           <div class="cart-item">
-            <img src="images/Shoes1.png" alt="product" />
+            <img src="images/Shoes1.png" alt="Shoes1.png" />
             <div>
-              <h4 class="nowrap">Nike invisible</h4>
+              <h4 class="nowrap">Nike Invincible</h4>
               <h5>$70</h5>
-              <span class="remove-item">Видалити</span>
-            </div>
-            <div class="icons-change">
-              <i class="fas fa-chevron-up"></i>
-              <p class="item-amount">1</p>
-              <i class="fas fa-chevron-down"></i>
-            </div>
-          </div>
-          <div class="cart-item">
-            <img src="images/Shoes1.png" alt="product" />
-            <div>
-              <h4 class="nowrap">Nike invisible</h4>
-              <h5>$70</h5>
-              <span class="remove-item">Видалити</span>
-            </div>
-            <div class="icons-change">
-              <i class="fas fa-chevron-up"></i>
-              <p class="item-amount">1</p>
-              <i class="fas fa-chevron-down"></i>
-            </div>
-          </div>
-          <div class="cart-item">
-            <img src="images/Shoes1.png" alt="product" />
-            <div>
-              <h4 class="nowrap">Nike invisible</h4>
-              <h5>$70</h5>
-              <span class="remove-item">Видалити</span>
+              <span class="remove-item">видалити</span>
             </div>
             <div class="icons-change">
               <i class="fas fa-chevron-up"></i>
@@ -181,10 +175,11 @@
           </div>
         </div>
         <div class="cart-footer">
-          <h3>Вартість: $<span class="card-total">0</span></h3>
-          <button class="clear-cart nowrap banner-btn">Очистити кошик</button>
+          <h3>Вартість: $ <span class="cart-total">0</span></h3>
+          <button class="clear-cart banner-btn nowrap">очистити кошик</button>
         </div>
       </div>
     </div>
+    <!-- end of cart -->
   </body>
 </html>
