@@ -9,6 +9,7 @@ let emailinfo = document.getElementById("email");
 let passwordinfo = document.getElementById("password");
 //div
 let Sign = document.getElementById("Sign");
+var outputDiv = document.getElementById("output");
 
 loginBtn.onclick = function () {
   surnameField.style.opacity = "0";
@@ -30,31 +31,62 @@ signupBtn.onclick = function () {
   loginBtn.classList.add("disable");
 };
 
-applyBtn.onclick = function () {
-  let name = nameinfo.value;
-  let surname = surnameinfo.value;
-  let email = emailinfo.value;
-  let password = passwordinfo.value;
-  if (signupBtn.classList.contains("disable")) {
-    if (email in localStorage) {
-      const raw = localStorage.getItem(email);
-      const person = JSON.parse(raw);
-      if (person.userPassword == password) {
-        console.log("success");
-      } else {
-        console.log("wrong password");
-      }
-    } else {
-      console.log("wrong email");
+signupBtn.onclick = function(){
+    surnameField.style.opacity = "1";
+    nameField.style.opacity = "1";
+    nameField.style.maxHeight = "60px";
+    surnameField.style.maxHeight = "60px";
+    Sign.innerHTML = "Sign Up";
+    signupBtn.classList.remove("disable");
+    loginBtn.classList.add("disable");
+}
+
+applyBtn.onclick = function(){
+    let name = nameinfo.value;
+    let surname = surnameinfo.value;
+    let email = emailinfo.value;
+    let password = passwordinfo.value;
+    const raw = localStorage.getItem(email);
+    const person = JSON.parse(raw);
+
+    if (signupBtn.classList.contains("disable")){
+        if (!(email=="") && !(password=="")){
+            if (email in localStorage){
+                if (person.userPassword == password){
+                    console.log('success')
+                    window.location.href = "./index.html";
+                }
+                else{
+                    outputDiv.textContent = "Wrong password";
+                }
+            }
+            else{
+                outputDiv.textContent = "Wrong email";
+            }
+        }
+        else{
+            outputDiv.textContent = "Fill in all fields";
+        }
+
     }
-  }
-  if (loginBtn.classList.contains("disable")) {
-    const user = {
-      userName: name,
-      userSurname: surname,
-      userEmail: email,
-      userPassword: password,
-    };
-    localStorage.setItem(email, JSON.stringify(user));
-  }
-};
+    if (loginBtn.classList.contains("disable")){
+        const user = {
+            userName: name,
+            userSurname: surname,
+            userEmail: email,
+            userPassword: password,
+        }
+        if (!(name=="") && !(surname=="") && !(email=="") && !(password=="")){
+            if (!(user.userEmail in localStorage)){
+            localStorage.setItem(email, JSON.stringify(user))
+            window.location.href = "./index.html";
+            }
+            else {
+                outputDiv.textContent = 'This Email is already in use'
+            }
+        }
+        else{
+            outputDiv.textContent = "Fill in all fields";
+        }
+    }
+}
