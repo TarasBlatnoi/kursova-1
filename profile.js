@@ -11,16 +11,25 @@ let passwordinfo = document.getElementById("password");
 let Sign = document.getElementById("Sign");
 var outputDiv = document.getElementById("output");
 
+loginBtn.onclick = function () {
+  surnameField.style.opacity = "0";
+  nameField.style.opacity = "0";
+  nameField.style.maxHeight = "0";
+  surnameField.style.maxHeight = "0";
+  Sign.innerHTML = "Log In";
+  signupBtn.classList.add("disable");
+  loginBtn.classList.remove("disable");
+};
 
-loginBtn.onclick = function(){
-    surnameField.style.opacity = "0";
-    nameField.style.opacity = "0";
-    nameField.style.maxHeight = "0";
-    surnameField.style.maxHeight = "0";
-    Sign.innerHTML = "Log In";
-    signupBtn.classList.add("disable");
-    loginBtn.classList.remove("disable");
-}
+signupBtn.onclick = function () {
+  surnameField.style.opacity = "1";
+  nameField.style.opacity = "1";
+  nameField.style.maxHeight = "60px";
+  surnameField.style.maxHeight = "60px";
+  Sign.innerHTML = "Sign Up";
+  signupBtn.classList.remove("disable");
+  loginBtn.classList.add("disable");
+};
 
 signupBtn.onclick = function(){
     surnameField.style.opacity = "1";
@@ -39,7 +48,7 @@ applyBtn.onclick = function(){
     let password = passwordinfo.value;
     const raw = localStorage.getItem(email);
     const person = JSON.parse(raw);
-    
+
     if (signupBtn.classList.contains("disable")){
         if (!(email=="") && !(password=="")){
             if (email in localStorage){
@@ -50,7 +59,7 @@ applyBtn.onclick = function(){
                 else{
                     outputDiv.textContent = "Wrong password";
                 }
-            }   
+            }
             else{
                 outputDiv.textContent = "Wrong email";
             }
@@ -58,7 +67,7 @@ applyBtn.onclick = function(){
         else{
             outputDiv.textContent = "Fill in all fields";
         }
-        
+
     }
     if (loginBtn.classList.contains("disable")){
         const user = {
