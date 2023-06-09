@@ -127,6 +127,10 @@ button{
     font-weight: 600;
 }
 
+#output {
+    text-align: center;
+  }
+
 .wide-btn {
     position: relative;
     top: 10px;
