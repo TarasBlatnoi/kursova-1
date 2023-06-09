@@ -156,15 +156,9 @@ nav li {
   align-items: center;
 }
 .cart-btn {
-<<<<<<< HEAD
-  position: relative;
-  display: flex;
-  cursor: pointer;
-=======
   display: flex;
   cursor: pointer;
   position: relative;
->>>>>>> main
   justify-content: center;
 }
 .cart-items {
@@ -180,14 +174,6 @@ nav li {
   z-index: 0;
   width: 24%;
 }
-<<<<<<< HEAD
-.icons__wrapper {
-  position: flex;
-  flex-direction: row;
-}
-=======
-
->>>>>>> main
 .cart-btn {
   position: relative;
   cursor: pointer;
