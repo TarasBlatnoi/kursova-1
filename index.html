@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -17,7 +17,7 @@
   </head>
   <body>
     <div class="header__offer">
-      <p>До кінця розпродажу 4д. 35хв. 30сек. &vert; Дізнатись більше</p>
+      <p id="countdown"></p>
     </div>
     <header class="header">
       <nav class="navbar">
@@ -32,9 +32,11 @@
           <li>Про нас</li>
         </ul>
         <div class="header__icons">
-          <a href="/profile.html"
-            ><img class="icon" src="images/user.svg" alt="user"
-          /></a>
+          <p class="tooltip" data-tooltip="" id="tooltipElement">
+            <a href="/profile.html"
+              ><img class="icon" src="images/user.svg" alt="user" />
+            </a>
+          </p>
           <img class="icon" src="images/heart.svg" alt="heart" />
           <div class="cart-btn">
             <span class="nav-icon">
@@ -81,21 +83,119 @@
           <i class="fas fa-window-close"></i>
         </span>
         <h2>Ваша корзина</h2>
-        <div class="cart-content"></div>
+        <div class="cart-content">
+          <!-- cart item-->
+          <div class="cart-item">
+            <img src="images/Shoes1.png" alt="Shoes1.png" />
+            <div>
+              <h4 class="nowrap">Nike Invincible</h4>
+              <h5>$70</h5>
+              <span class="remove-item">видалити</span>
+            </div>
+            <div class="icons-change">
+              <i class="fas fa-chevron-up"></i>
+              <p class="item-amount">1</p>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+          </div>
+          <!-- end of cart item-->
+          <div class="cart-item">
+            <img src="images/Shoes1.png" alt="Shoes1.png" />
+            <div>
+              <h4 class="nowrap">Nike Invincible</h4>
+              <h5>$70</h5>
+              <span class="remove-item">видалити</span>
+            </div>
+            <div class="icons-change">
+              <i class="fas fa-chevron-up"></i>
+              <p class="item-amount">1</p>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+          </div>
+          <div class="cart-item">
+            <img src="images/Shoes1.png" alt="Shoes1.png" />
+            <div>
+              <h4 class="nowrap">Nike Invincible</h4>
+              <h5>$70</h5>
+              <span class="remove-item">видалити</span>
+            </div>
+            <div class="icons-change">
+              <i class="fas fa-chevron-up"></i>
+              <p class="item-amount">1</p>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+          </div>
+          <div class="cart-item">
+            <img src="images/Shoes1.png" alt="Shoes1.png" />
+            <div>
+              <h4 class="nowrap">Nike Invincible</h4>
+              <h5>$70</h5>
+              <span class="remove-item">видалити</span>
+            </div>
+            <div class="icons-change">
+              <i class="fas fa-chevron-up"></i>
+              <p class="item-amount">1</p>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+          </div>
+          <div class="cart-item">
+            <img src="images/Shoes1.png" alt="Shoes1.png" />
+            <div>
+              <h4 class="nowrap">Nike Invincible</h4>
+              <h5>$70</h5>
+              <span class="remove-item">видалити</span>
+            </div>
+            <div class="icons-change">
+              <i class="fas fa-chevron-up"></i>
+              <p class="item-amount">1</p>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+          </div>
+          <div class="cart-item">
+            <img src="images/Shoes1.png" alt="Shoes1.png" />
+            <div>
+              <h4 class="nowrap">Nike Invincible</h4>
+              <h5>$70</h5>
+              <span class="remove-item">видалити</span>
+            </div>
+            <div class="icons-change">
+              <i class="fas fa-chevron-up"></i>
+              <p class="item-amount">1</p>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+          </div>
+          <div class="cart-item">
+            <img src="images/Shoes1.png" alt="Shoes1.png" />
+            <div>
+              <h4 class="nowrap">Nike Invincible</h4>
+              <h5>$70</h5>
+              <span class="remove-item">видалити</span>
+            </div>
+            <div class="icons-change">
+              <i class="fas fa-chevron-up"></i>
+              <p class="item-amount">1</p>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+          </div>
+        </div>
         <div class="cart-footer">
+          name
           <h3>Вартість: $ <span class="cart-total">0</span></h3>
           <button class="clear-cart banner-btn nowrap">очистити кошик</button>
         </div>
       </div>
     </div>
     <!-- end of cart -->
-    <footer class="footer">
-      <p>
-        <span class="nowrap">Copyright &copy; <time id="year"></time></span>
-        <span class="nowrap">Terabade</span>
-      </p>
-    </footer>
-    <script src="scripts/changeYear.js" defer></script>
-    <script src="scripts/cart.js"></script>
+    <script>
+      const tooltipElement = document.getElementById("tooltipElement")
+      const name = sessionStorage.getItem("name")
+
+      if (name === null || name === "null") {
+        tooltipElement.setAttribute("data-tooltip", "Привіт")
+      } else {
+        tooltipElement.setAttribute("data-tooltip", `Привіт, ${name}`)
+      }
+    </script>
+    <script src="scripts/index.js"></script>
   </body>
 </html>
