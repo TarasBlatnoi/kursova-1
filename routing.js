@@ -15,6 +15,7 @@ const fonts = readFilesDir(fontNames, "fonts");
 const frontNames = getFilesFromDir("./scripts");
 const front = readFilesDir(frontNames, "scripts");
 const products = fs.readFileSync("./products.json", "utf8");
+const productsCart = fs.readFileSync("./productsCart.json", "utf8");
 const routing = {
   "/": index,
   "/Catalog.html": catalog,
@@ -23,6 +24,7 @@ const routing = {
   "/fonts/*": fonts,
   "/scripts/*": front,
   "/api/v1/products.json": products,
+  "/api/v1/productsCart.json": productsCart,
 };
 const matching = [];
 for (const key in routing) {
