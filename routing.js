@@ -4,6 +4,7 @@ const fs = require("fs");
 const PORT = 5000;
 const getFilesFromDir = require("./getFilesFromDir");
 const readFilesDir = require("./readFilesDir");
+const { profile } = require("console");
 const catalog = fs.readFileSync("./Catalog.html", "utf8");
 const index = fs.readFileSync("./index.html", "utf8");
 const stylesNames = getFilesFromDir("./styles");
@@ -16,9 +17,11 @@ const frontNames = getFilesFromDir("./scripts");
 const front = readFilesDir(frontNames, "scripts");
 const products = fs.readFileSync("./products.json", "utf8");
 const productsCart = fs.readFileSync("./productsCart.json", "utf8");
+const profilepage = fs.readFileSync("./profile.html", "utf8");
 const routing = {
   "/": index,
   "/Catalog.html": catalog,
+  "/profile.html": profilepage,
   "/styles/*": styles,
   "/images/*": images,
   "/fonts/*": fonts,
