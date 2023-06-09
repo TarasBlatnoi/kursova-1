@@ -31,25 +31,18 @@ textarea {
   --FC: #1c1c1c;
   /*Fonts*/
   --FF-OFFER: Arial;
-<<<<<<< HEAD
-  --FFG: Arista-Pro-Light;
-=======
->>>>>>> main
   --FF: Ermilov;
   --FS: clamp(1rem, 2.2vh, 1.5rem);
   --FS-HEADER: clamp(0.66rem, 1.2vh, 0.78rem);
   /*PADDING*/
   --PADDDING-OFFER: 0.3em;
   --index: calc(1vw + 1vh);
-<<<<<<< HEAD
-=======
   --primaryColor: #f09d51;
   --mainWhite: #fff;
   --mainBlack: #222;
   --mainGrey: #ececec;
   --mainSpacing: 0.1rem;
   --mainTransition: all 0.3s linear;
->>>>>>> main
 }
 /*UTILITY CLASSES*/
 .offscreen {
@@ -131,10 +124,6 @@ nav li {
   z-index: 0;
   width: 63.5%;
 }
-<<<<<<< HEAD
-
-=======
->>>>>>> main
 .header__icons {
   width: 10%;
   display: flex;
@@ -142,15 +131,9 @@ nav li {
   align-items: center;
 }
 .cart-btn {
-<<<<<<< HEAD
-  position: relative;
-  display: flex;
-  cursor: pointer;
-=======
   display: flex;
   cursor: pointer;
   position: relative;
->>>>>>> main
   justify-content: center;
 }
 .cart-items {
@@ -221,10 +204,6 @@ nav li {
   left: 34em;
   top: 4.7em;
   margin-right: 1em;
-<<<<<<< HEAD
-
-=======
->>>>>>> main
   font-family: var(--FFG);
   font-size: 2rem;
 }
@@ -388,23 +367,6 @@ h5 {
   display: none;
 }
 
-<<<<<<< HEAD
-.add-to-cart-btn {
-  background-color: #f9d423;
-  color: #1c1c1c;
-  font-family: var(--FF);
-  font-size: 1rem;
-  padding: 0.5em 1em;
-  border: none;
-  border-radius: 0.5em;
-  cursor: pointer;
-  margin-top: 1em;
-  transition: background-color 0.3s ease;
-}
-
-.add-to-cart-btn:hover {
-  background-color: #e6bd1d;
-=======
 .cart-overlay {
   position: fixed;
   top: 0;
@@ -519,5 +481,4 @@ h5 {
 .cart-footer h3 {
   text-transform: capitalize;
   margin-bottom: 1rem;
->>>>>>> main
 }
