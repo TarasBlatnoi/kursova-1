@@ -13,7 +13,7 @@
   </head>
   <body>
     <div class="header__offer">
-      <p>До кінця розпродажу 4д. 35хв. 30сек. &vert; Дізнатись більше</p>
+      <p id="countdown"></p>
     </div>
     <header class="header">
       <nav class="header__navbar">
@@ -34,7 +34,11 @@
           <li>Про нас</li>
         </ul>
         <div class="header__icons">
-          <img class="icon" src="images/user.svg" alt="user" />
+          <p class="tooltip" data-tooltip="Привіт, " id="tooltipElement">
+            <a href="/profile.html"
+              ><img class="icon" src="images/user.svg" alt="user"/>
+            </a>
+            </p>
           <img class="icon" src="images/heart.svg" alt="heart" />
           <div class="cart-btn">
             <span class="nav-icon">
@@ -240,4 +244,14 @@
   </div>
   <script src="scripts/cart.js"></script>
   <script src="scripts/front.js"></script>
+  <script>
+    const tooltipElement = document.getElementById("tooltipElement");
+    const name = sessionStorage.getItem('name');
+    
+    if (name === null || name === 'null') {
+      tooltipElement.setAttribute("data-tooltip", "Привіт");
+    } else {
+      tooltipElement.setAttribute("data-tooltip", `Привіт, ${name}`);
+    }
+  </script>
 </html>
