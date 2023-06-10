@@ -217,6 +217,9 @@ nav li {
   font-size: 5rem;
   margin-left: 1em;
 }
+main {
+  height: 250vh;
+}
 .hype-order {
   font-size: 2rem;
   margin-left: 6em;
