@@ -53,8 +53,12 @@ applyBtn.onclick = function(){
         if (!(email=="") && !(password=="")){
             if (email in localStorage){
                 if (person.userPassword == password){
+                    const userString = localStorage.getItem(email);
+                    const userObject = JSON.parse(userString);
+                    const name = userObject.userName;
                     console.log('success')
-                    window.location.href = "./index.html";
+                    sessionStorage.setItem('name', name);
+                    window.location.href = "/";
                 }
                 else{
                     outputDiv.textContent = "Wrong password";
@@ -79,7 +83,8 @@ applyBtn.onclick = function(){
         if (!(name=="") && !(surname=="") && !(email=="") && !(password=="")){
             if (!(user.userEmail in localStorage)){
             localStorage.setItem(email, JSON.stringify(user))
-            window.location.href = "./index.html";
+            sessionStorage.setItem('name', name);
+            window.location.href = "/";
             }
             else {
                 outputDiv.textContent = 'This Email is already in use'
