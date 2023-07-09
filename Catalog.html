@@ -36,9 +36,9 @@
         <div class="header__icons">
           <p class="tooltip" data-tooltip="Привіт, " id="tooltipElement">
             <a href="/profile.html"
-              ><img class="icon" src="images/user.svg" alt="user"/>
+              ><img class="icon" src="images/user.svg" alt="user" />
             </a>
-            </p>
+          </p>
           <img class="icon" src="images/heart.svg" alt="heart" />
           <div class="cart-btn">
             <span class="nav-icon">
@@ -54,101 +54,101 @@
     <div>
       <img class="white-spot" src="images/Navbar.png" alt="white-spot" />
     </div>
-
-    <div class="Main">
-      <h1 class="Man-Title">Чоловіче Взуття</h1>
-
-      <div class="Hide-Filter">
-        <div class="Select-Hide">
-          <span class="Man-Title2">Приховати фільтр</span>
-          <img class="icon-filter" src="images/Filter.svg" alt="Hide" />
+    <main>
+      <div class="filter-setters">
+        <h1 class="filter-type">Чоловіче Взуття</h1>
+        <div class="hide-filter">
+          <div class="select-side">
+            <span class="Man-Title2">Приховати фільтр</span>
+            <img class="icon-filter" src="images/Filter.svg" alt="Hide" />
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="Sorting-dropdown">
-      <div class="select">
-        <span class="selected"> Сортування </span>
-        <div class="caret">
-          <img class="icon-sort" src="images/Caret-Sort.svg" alt="Hide" />
+      <div class="sorting-dropdown">
+        <div class="select">
+          <span class="selected"> Сортування </span>
+          <div class="caret">
+            <img class="icon-sort" src="images/Caret-Sort.svg" alt="Hide" />
+          </div>
+        </div>
+        <ul class="filter-options">
+          <li>Новинки</li>
+          <li>Ціна: Висока-Низька</li>
+          <li>Ціна: Низька-Висока</li>
+        </ul>
+      </div>
+
+      <div class="wrapper">
+        <img class="Line-Vert" src="images/Vertical.svg" alt="Hide" />
+
+        <div class="DivAllFilter">
+          <form class="All-form">
+            <input
+              type="checkbox"
+              class="input-value"
+              id="All"
+              name="gender"
+              value="All"
+              onclick="filterProduct('all')"
+            />
+            <label for="All">Усі</label><br />
+          </form>
+        </div>
+        <img class="Line-Gor" src="images/Gorizontal.svg" alt="Hide" />
+        <div class="DivRun">
+          <span class="TypeRun"> Тип Бігу </span>
+          <form class="run-form">
+            <input
+              type="checkbox"
+              class="input-value"
+              id="Every"
+              name="gender"
+              value="male"
+              onclick="filterProduct('Щоденний')"
+            />
+            <label for="Every">Щоденний</label><br />
+            <input
+              type="checkbox"
+              class="input-value"
+              id="Road"
+              name="gender"
+              value="female"
+              onclick="filterProduct('Дорожній')"
+            />
+            <label for="Road">Дорожній</label><br />
+          </form>
+        </div>
+        <div id="products" class="products-center"></div>
+      </div>
+      <div class="cart-overlay">
+        <div class="cart">
+          <span class="close-cart">
+            <i class="fas fa-window-close"></i>
+          </span>
+          <h2>Ваша корзина</h2>
+          <div class="cart-content">
+            <!-- <div class="cart-item"></div> -->
+          </div>
+          <div class="cart-footer">
+            <h3>Вартість: $<span class="cart-total">0</span></h3>
+            <button class="clear-cart nowrap banner-btn">Очистити кошик</button>
+          </div>
         </div>
       </div>
-      <ul class="menu">
-        <li>Новинки</li>
-        <li>Ціна: Висока-Низька</li>
-        <li>Ціна: Низька-Висока</li>
-      </ul>
-    </div>
+    </main>
 
-    <div class="wrapper">
-      <img class="Line-Vert" src="images/Vertical.svg" alt="Hide" />
+    <script src="scripts/cart.js"></script>
+    <script src="scripts/front.js"></script>
+    <script>
+      const tooltipElement = document.getElementById("tooltipElement");
+      const name = sessionStorage.getItem("name");
 
-      <div class="DivAllFilter">
-        <form class="All-form">
-          <input
-            type="checkbox"
-            class="input-value"
-            id="All"
-            name="gender"
-            value="All"
-            onclick="filterProduct('all')"
-          />
-          <label for="All">Усі</label><br />
-        </form>
-      </div>
-      <img class="Line-Gor" src="images/Gorizontal.svg" alt="Hide" />
-      <div class="DivRun">
-        <span class="TypeRun"> Тип Бігу </span>
-        <form class="run-form">
-          <input
-            type="checkbox"
-            class="input-value"
-            id="Every"
-            name="gender"
-            value="male"
-            onclick="filterProduct('Щоденний')"
-          />
-          <label for="Every">Щоденний</label><br />
-          <input
-            type="checkbox"
-            class="input-value"
-            id="Road"
-            name="gender"
-            value="female"
-            onclick="filterProduct('Дорожній')"
-          />
-          <label for="Road">Дорожній</label><br />
-        </form>
-      </div>
-      <div id="products" class="products-center"></div>
-    </div>
+      if (name === null || name === "null") {
+        tooltipElement.setAttribute("data-tooltip", "Привіт");
+      } else {
+        tooltipElement.setAttribute("data-tooltip", `Привіт, ${name}`);
+      }
+    </script>
   </body>
-
-  <div class="cart-overlay">
-    <div class="cart">
-      <span class="close-cart">
-        <i class="fas fa-window-close"></i>
-      </span>
-      <h2>Ваша корзина</h2>
-      <div class="cart-content">
-        <!-- <div class="cart-item"></div> -->
-      </div>
-      <div class="cart-footer">
-        <h3>Вартість: $<span class="cart-total">0</span></h3>
-        <button class="clear-cart nowrap banner-btn">Очистити кошик</button>
-      </div>
-    </div>
-  </div>
-  <script src="scripts/cart.js"></script>
-  <script src="scripts/front.js"></script>
-  <script>
-    const tooltipElement = document.getElementById("tooltipElement");
-    const name = sessionStorage.getItem('name');
-    
-    if (name === null || name === 'null') {
-      tooltipElement.setAttribute("data-tooltip", "Привіт");
-    } else {
-      tooltipElement.setAttribute("data-tooltip", `Привіт, ${name}`);
-    }
-  </script>
 </html>
