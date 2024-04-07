@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
   const user = localStorage.getItem("user")
-
+//changes
   if (user) {
     console.log("User is logged in")
     return
