@@ -1,4 +1,4 @@
-const bcrypt = require("bcrypt")
+const bcrypt = require("bcryptjs")
 //const verifyPassword = require("./verifyPassword")
 
 async function hashPassword(password) {
