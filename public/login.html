@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="styles/profile.css" />
+    <title>Terrablade</title>
+  </head>
+  <body>
+    <section>
+      <div class="form-box">
+        <div class="form-value">
+          <form action="/login" method="post">
+            <h2 id="Login">Log in</h2>
+            <div class="inputbox full-width">
+              <input type="text" id="email" required name="email" />
+              <label for="">Email</label>
+            </div>
+            <div class="inputbox full-width">
+              <input type="password" id="password" required name="password" />
+              <label for="">Password</label>
+            </div>
+            <div class="button-case">
+              <button type="button" id="loginBtn" class="wide-btn disable">
+                Log In
+              </button>
+            </div>
+            <div class="button-case applyBtn">
+              <button type="submit" id="applyBtn" class="narrow-btn">
+                Apply
+              </button>
+            </div>
+            <br />
+            <div id="output"></div>
+          </form>
+        </div>
+      </div>
+    </section>
+    <script src="scripts/profile.js"></script>
+  </body>
+</html>

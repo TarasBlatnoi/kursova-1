@@ -3,65 +3,110 @@
     {
       "sys": { "id": "1" },
       "fields": {
-        "title": "queen panel bed",
-        "price": 10.99,
+        "title": "Random Item 1",
+        "price": 59.15466226740165,
+        "gender": "Чоловіча",
+        "image": { "fields": { "file": { "url": "./images/Shoes1.png" } } }
+      }
+    },
+    {
+      "sys": { "id": "11" },
+      "fields": {
+        "title": "Random Item 11",
+        "price": 59.15466226740165,
+        "gender": "Унісекс",
         "image": { "fields": { "file": { "url": "./images/Shoes1.png" } } }
       }
     },
     {
       "sys": { "id": "2" },
       "fields": {
-        "title": "king panel bed",
-        "price": 12.99,
+        "title": "Random Item 2",
+        "price": 5.96114656667493,
+        "gender": "Жіноча",
         "image": { "fields": { "file": { "url": "./images/Shoes2.png" } } }
       }
     },
     {
       "sys": { "id": "3" },
       "fields": {
-        "title": "single panel bed",
-        "price": 12.99,
+        "title": "Random Item 3",
+        "price": 26.01319455741105,
+        "gender": "Чоловіча",
         "image": { "fields": { "file": { "url": "./images/Shoes3.png" } } }
       }
     },
     {
       "sys": { "id": "4" },
       "fields": {
-        "title": "twin panel bed",
-        "price": 22.99,
+        "title": "Random Item 4",
+        "price": 44.050441211328014,
+        "gender": "Жіноча",
         "image": { "fields": { "file": { "url": "./images/Shoes4.png" } } }
+      }
+    },
+    {
+      "sys": { "id": "12" },
+      "fields": {
+        "title": "Random Item 12",
+        "price": 59.15466226740165,
+        "gender": "Унісекс",
+        "image": { "fields": { "file": { "url": "./images/Shoes1.png" } } }
       }
     },
     {
       "sys": { "id": "5" },
       "fields": {
-        "title": "fridge",
-        "price": 88.99,
-        "image": { "fields": { "file": { "url": "./images/Shoes4.png" } } }
+        "title": "Random Item 5",
+        "price": 74.65472921748607,
+        "gender": "Чоловіча",
+        "image": { "fields": { "file": { "url": "./images/Shoes5.png" } } }
       }
     },
+
     {
       "sys": { "id": "6" },
       "fields": {
-        "title": "dresser",
-        "price": 32.99,
-        "image": { "fields": { "file": { "url": "./images/Shoes5.png" } } }
+        "title": "Random Item 6",
+        "price": 79.01182618626313,
+        "gender": "Жіноча",
+        "image": { "fields": { "file": { "url": "./images/Shoes6.png" } } }
       }
     },
     {
       "sys": { "id": "7" },
       "fields": {
-        "title": "couch",
-        "price": 45.99,
-        "image": { "fields": { "file": { "url": "./images/Shoes6.png" } } }
+        "title": "Random Item 7",
+        "price": 70.69635645346328,
+        "gender": "Чоловіча",
+        "image": { "fields": { "file": { "url": "./images/Shoes7.png" } } }
       }
     },
     {
       "sys": { "id": "8" },
       "fields": {
-        "title": "table",
-        "price": 33.99,
-        "image": { "fields": { "file": { "url": "./images/Shoes7.png" } } }
+        "title": "Random Item 8",
+        "price": 42.504312417581646,
+        "gender": "Жіноча",
+        "image": { "fields": { "file": { "url": "./images/Shoes8.png" } } }
+      }
+    },
+    {
+      "sys": { "id": "9" },
+      "fields": {
+        "title": "Random Item 9",
+        "price": 80.75000754724973,
+        "gender": "Чоловіча",
+        "image": { "fields": { "file": { "url": "./images/Shoes9.png" } } }
+      }
+    },
+    {
+      "sys": { "id": "10" },
+      "fields": {
+        "title": "Random Item 10",
+        "price": 38.53875532005017,
+        "gender": "Жіноча",
+        "image": { "fields": { "file": { "url": "./images/Shoes10.png" } } }
       }
     }
   ]

@@ -6,7 +6,6 @@ const HideFilter = document.querySelectorAll(".Hide-Filter");
 HideFilter.forEach((HideFilter) => {
   const selectHide = HideFilter.querySelector(".Select-Hide");
   const icon = HideFilter.querySelector(".icon-filter");
-
   selectHide.addEventListener("click", () => {
     icon.classList.toggle("icon-filter-rotate");
   });

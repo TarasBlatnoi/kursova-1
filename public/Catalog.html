@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const tooltipElement = document.getElementById("tooltipElement");
+        const name = sessionStorage.getItem("name");
+        if (name === null || name === "null") {
+          tooltipElement.setAttribute(
+            "data-tooltip",
+            "Ввійдіть в свій аккаунт"
+          );
+        } else {
+          tooltipElement.setAttribute("data-tooltip", `Привіт, ${name}`);
+        }
+      });
+    </script>
+    <script
+      src="https://kit.fontawesome.com/262f393da5.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="styles/StyleCatalog.css" />
+  </head>
+  <body>
+    <div class="header__offer">
+      <p id="countdown"></p>
+    </div>
+    <header class="header">
+      <nav class="header__navbar">
+        <a href="/"
+          ><img class="logo" src="images/Terabade.svg" alt="Terabade"
+        /></a>
+        <div id="search-container">
+          <input type="search" id="search-input" placeholder="Пошук" />
+          <button id="search">
+            <img class="SearchPH" src="images/search.png" alt="Search" />
+          </button>
+        </div>
+        <ul class="Navbar-UL">
+          <li>Чоловіки</li>
+          <li>Жінки</li>
+          <li>Діти</li>
+          <li>Розпродаж</li>
+          <li>Про нас</li>
+        </ul>
+        <div class="header__icons">
+          <p class="tooltip" data-tooltip="Привіт, " id="tooltipElement">
+            <a href="/login.html"
+              ><img class="icon" src="images/user.svg" alt="user" />
+            </a>
+          </p>
+          <img class="icon" src="images/heart.svg" alt="heart" />
+          <div class="cart-btn">
+            <span class="nav-icon">
+              <img class="icon" src="images/Basket.svg" alt="basket" />
+            </span>
+            <div class="cart-items">0</div>
+          </div>
+        </div>
+        <p class="language">UA</p>
+      </nav>
+      <img class="white-spot" src="images/Navbar.png" alt="white-spot" />
+    </header>
+
+    <main>
+      <!-- <div class="filter-setters">
+        <h1 class="filter-type">Чоловіче Взуття</h1>
+        <div class="hide-filter">
+          <div class="select-side">
+            <span class="Man-Title2">Приховати фільтр</span>
+            <img class="icon-filter" src="images/Filter.svg" alt="Hide" />
+          </div>
+        </div>
+      </div>
+
+      <div class="sorting-dropdown">
+        <div class="select">
+          <span class="selected"> Сортування </span>
+          <div class="caret">
+            <img class="icon-sort" src="images/Caret-Sort.svg" alt="Hide" />
+          </div>
+        </div>
+        <ul class="filter-options">
+          <li>Новинки</li>
+          <li>Ціна: Висока-Низька</li>
+          <li>Ціна: Низька-Висока</li>
+        </ul>
+      </div> -->
+      <div class="filter-info">
+        <h1 class="Man-Title">Чоловіче Взуття</h1>
+        <div class="filter-settings">
+          <div class="Select-Hide">
+            <span class="Man-Title2 nowrap">Приховати фільтр</span>
+            <img class="icon-filter" src="images/Filter.svg" alt="Hide" />
+          </div>
+          <div class="select">
+            <span class="selected"> Сортування </span>
+            <img
+              class="icon-sort caret"
+              src="images/Caret-Sort.svg"
+              alt="Hide"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="wrapper">
+        <div class="left-filter showFilter" style="display: flex; width: 45vh;">
+          <div class="sex-filter">
+            <p class="title">Стать</p>
+            <form class="run-form">
+              <input
+                type="checkbox"
+                class="input-value"
+                id="male"
+                name="gender"
+                value="Чоловіча"
+                onclick="filterProductGender('Чоловіча')"
+              />
+              <label for="male" class="sex active-dot" id="Чоловіча">Чоловіча</label><br/>
+              <input
+                type="checkbox"
+                class="input-value"
+                id="female"
+                name="gender"
+                value="Жіноча"
+                onclick="filterProductGender('Жіноча')"
+              />
+              <label for="female" class="sex active-dot" id="Жіноча">Жіноча</label><br />
+              <input
+                type="checkbox"
+                class="input-value"
+                id="unisex"
+                name="gender"
+                value="Унісекс"
+                onclick="filterProductGender('Унісекс')"
+              />
+              <label for="unisex" class="sex active-dot" id="Унісекс">Унісекс</label><br/>
+            </form>
+          </div>
+          <div class="price-filter">
+            <p class="title">Ціна</p>
+            <form class="run-form">
+              <input
+                type="checkbox"
+                class="input-value"
+                id="1000-2500"
+                name="price"
+                value="price"
+                onclick="filterProduct('Щоденний')"
+              />
+              <label for="1000-2500" class="active-dot"
+                ><span class="numbers">1000-2500</span>
+                <span class="UAH">UAH</span></label
+              ><br />
+              <input
+                type="checkbox"
+                class="input-value"
+                id="2500-3500"
+                name="price"
+                value="2500-3500"
+                onclick="filterProduct('Дорожній')"
+              />
+              <label for="2500-3500" class="active-dot"
+                ><span class="numbers">2500-3500</span>
+                <span class="UAH">UAH</span></label
+              ><br />
+              <input
+                type="checkbox"
+                class="input-value"
+                id="3500-5000"
+                name="price"
+                value="3500-5000"
+                onclick="filterProduct('Щоденний')"
+              />
+              <label for="3500-5000" class="active-dot"
+                ><span class="numbers">3500-5000</span>
+                <span class="UAH">UAH</span></label
+              ><br />
+              <input
+                type="checkbox"
+                class="input-value"
+                id=">5000"
+                name="price"
+                value=">5000"
+                onclick="filterProduct('Щоденний')"
+              />
+              <label for=">5000" class="active-dot"
+                ><span class="numbers">>5000</span>
+                <span class="UAH">UAH</span></label
+              ><br />
+            </form>
+          </div>
+          <div class="type-filter">
+            <p class="title">Тип</p>
+            <form class="run-form">
+              <input
+                type="checkbox"
+                class="input-value"
+                id="casual"
+                name="type"
+                value="casual"
+                onclick="filterProduct('Щоденний')"
+              />
+              <label for="casual" class="active-dot">Щоденний біг</label><br />
+              <input
+                type="checkbox"
+                class="input-value"
+                id="road"
+                name="type"
+                value="road"
+                onclick="filterProduct('Дорожній')"
+              />
+              <label for="road" class="active-dot">Дорожній біг</label><br />
+            </form>
+          </div>
+          <div class="color-filter">
+            <p class="title">Колір</p>
+            <form class="run-form colors">
+              <input
+                type="checkbox"
+                class="input-value color-input"
+                id="turquoise"
+                name="color"
+                value="turquoise"
+                onclick="filterProduct('Щоденний')"
+              />
+              <label
+                for="turquoise"
+                class="color-label color-label-turquoise"
+              ></label>
+              <input
+                type="checkbox"
+                class="input-value color-input"
+                id="yellow"
+                name="color"
+                value="yellow"
+                onclick="filterProduct('Дорожній')"
+              />
+              <label for="yellow" class="color-label color-label-yellow"></label>
+              <input
+                type="checkbox"
+                class="input-value color-input"
+                id="black"
+                name="color"
+                value="black"
+                onclick="filterProduct('Дорожній')"
+              />
+              <label for="black" class="color-label color-label-black"></label>
+              <input
+                type="checkbox"
+                class="input-value color-input"
+                id="red"
+                name="color"
+                value="red"
+                onclick="filterProduct('Дорожній')"
+              />
+              <label for="red" class="color-label color-label-red"></label>
+              <input
+                type="checkbox"
+                class="input-value color-input"
+                id="blue-bright"
+                name="color"
+                value="blue-bright"
+                onclick="filterProduct('Дорожній')"
+              />
+              <label
+                for="blue-bright"
+                class="color-label color-label-blue-bright"
+              ></label>
+              <input
+                type="checkbox"
+                class="input-value color-input"
+                id="beige"
+                name="color"
+                value="beige"
+                onclick="filterProduct('Дорожній')"
+              />
+              <label for="beige" class="color-label color-label-beige"></label>
+              <input
+                type="checkbox"
+                class="input-value color-input"
+                id="orange"
+                name="color"
+                value="orange"
+                onclick="filterProduct('Дорожній')"
+              />
+              <label for="orange" class="color-label color-label-orange"></label>
+              <input
+                type="checkbox"
+                class="input-value color-input"
+                id="green"
+                name="color"
+                value="green"
+                onclick="filterProduct('Дорожній')"
+              />
+              <label for="green" class="color-label color-label-green"></label>
+              <input
+                type="checkbox"
+                class="input-value color-input"
+                id="grey"
+                name="color"
+                value="grey"
+                onclick="filterProduct('Дорожній')"
+              />
+              <label for="grey" class="color-label color-label-grey"></label>
+             <input
+                type="checkbox"
+                class="input-value color-input"
+                id="purple"
+                name="color"
+                value="purple"
+                onclick="filterProduct('Дорожній')"
+              />
+              <label for="purple" class="color-label color-label-purple"></label>
+              <input
+                type="checkbox"
+                class="input-value color-input"
+                id="blue"
+                name="color"
+                value="blue"
+                onclick="filterProduct('Дорожній')"
+              />
+              <label for="blue" class="color-label color-label-blue"></label>
+            </form>
+          </div>
+           <div class="size-filter">
+            <p class="title">Розмір</p>
+            <form class="run-form sizes">
+              <input
+                type="checkbox"
+                class="input-value"
+                id="Every"
+                name="gender"
+                value="male"
+                onclick="filterProduct('Щоденний')"
+              />
+              <label
+                for="Every"
+                class="rect-size size-3-5"
+              ></label>
+                  <input
+                type="checkbox"
+                class="input-value"
+                id="Every"
+                name="gender"
+                value="male"
+                onclick="filterProduct('Щоденний')"
+              />
+              <label
+                for="Every"
+                class="rect-size"
+              ></label>
+                  <input
+                type="checkbox"
+                class="input-value"
+                id="Every"
+                name="gender"
+                value="male"
+                onclick="filterProduct('Щоденний')"
+              />
+              <label
+                for="Every"
+                class="rect-size"
+              ></label>
+                  <input
+                type="checkbox"
+                class="input-value"
+                id="Every"
+                name="gender"
+                value="male"
+                onclick="filterProduct('Щоденний')"
+              />
+              <label
+                for="Every"
+                class="rect-size"
+              ></label>
+                  <input
+                type="checkbox"
+                class="input-value"
+                id="Every"
+                name="gender"
+                value="male"
+                onclick="filterProduct('Щоденний')"
+              />
+              <label
+                for="Every"
+                class="rect-size"
+              ></label>
+                  <input
+                type="checkbox"
+                class="input-value"
+                id="Every"
+                name="gender"
+                value="male"
+                onclick="filterProduct('Щоденний')"
+              />
+              <label
+                for="Every"
+                class="rect-size"
+              ></label>
+                  <input
+                type="checkbox"
+                class="input-value"
+                id="Every"
+                name="gender"
+                value="male"
+                onclick="filterProduct('Щоденний')"
+              />
+              <label
+                for="Every"
+                class="rect-size"
+              ></label>
+                  <input
+                type="checkbox"
+                class="input-value"
+                id="Every"
+                name="gender"
+                value="male"
+                onclick="filterProduct('Щоденний')"
+              />
+              <label
+                for="Every"
+                class="rect-size"
+              ></label>
+                  <input
+                type="checkbox"
+                class="input-value"
+                id="Every"
+                name="gender"
+                value="male"
+                onclick="filterProduct('Щоденний')"
+              />
+              <label
+                for="Every"
+                class="rect-size"
+              ></label>
+                  <input
+                type="checkbox"
+                class="input-value"
+                id="Every"
+                name="gender"
+                value="male"
+                onclick="filterProduct('Щоденний')"
+              />
+              <label
+                for="Every"
+                class="rect-size"
+              ></label>
+                  <input
+                type="checkbox"
+                class="input-value"
+                id="Every"
+                name="gender"
+                value="male"
+                onclick="filterProduct('Щоденний')"
+              />
+              <label
+                for="Every"
+                class="rect-size"
+              ></label>
+                  <input
+                type="checkbox"
+                class="input-value"
+                id="Every"
+                name="gender"
+                value="male"
+                onclick="filterProduct('Щоденний')"
+              />
+              <label
+                for="Every"
+                class="rect-size"
+              ></label>
+                  <input
+                type="checkbox"
+                class="input-value"
+                id="Every"
+                name="gender"
+                value="male"
+                onclick="filterProduct('Щоденний')"
+              />
+              <label
+                for="Every"
+                class="rect-size"
+              ></label>
+                  <input
+                type="checkbox"
+                class="input-value"
+                id="Every"
+                name="gender"
+                value="male"
+                onclick="filterProduct('Щоденний')"
+              />
+              <label
+                for="Every"
+                class="rect-size"
+              ></label>
+                  <input
+                type="checkbox"
+                class="input-value"
+                id="Every"
+                name="gender"
+                value="male"
+                onclick="filterProduct('Щоденний')"
+              />
+              <label
+                for="Every"
+                class="rect-size"
+              ></label>
+                  <input
+                type="checkbox"
+                class="input-value"
+                id="Every"
+                name="gender"
+                value="male"
+                onclick="filterProduct('Щоденний')"
+              />
+              <label
+                for="Every"
+                class="rect-size"
+              ></label>
+                  <input
+                type="checkbox"
+                class="input-value"
+                id="Every"
+                name="gender"
+                value="male"
+                onclick="filterProduct('Щоденний')"
+              />
+              <label
+                for="Every"
+                class="rect-size"
+              ></label>
+                  <input
+                type="checkbox"
+                class="input-value"
+                id="Every"
+                name="gender"
+                value="male"
+                onclick="filterProduct('Щоденний')"
+              />
+              <label
+                for="Every"
+                class="rect-size"
+              ></label>
+                  <input
+                type="checkbox"
+                class="input-value"
+                id="Every"
+                name="gender"
+                value="male"
+                onclick="filterProduct('Щоденний')"
+              />
+              <label
+                for="Every"
+                class="rect-size"
+              ></label>
+                  <input
+                type="checkbox"
+                class="input-value"
+                id="Every"
+                name="gender"
+                value="male"
+                onclick="filterProduct('Щоденний')"
+              />
+              <label
+                for="Every"
+                class="rect-size"
+              ></label>
+              
+              </form>
+        </div>
+      </div>
+<div id="products" class="products-center" style="width: 70%; grid-column-gap: 2em;"></div>
+      <div class="cart-overlay">
+        <div class="cart">
+          <span class="close-cart">
+            <i class="fas fa-window-close"></i>
+          </span>
+          <h2>Ваша корзина</h2>
+          <div class="cart-content">
+            <!-- <div class="cart-item"></div> -->
+          </div>
+          <div class="cart-footer">
+            <h3>Вартість: $<span class="cart-total">0</span></h3>
+            <button class="clear-cart nowrap banner-btn">Очистити кошик</button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script src="scripts/cart.js"></script>
+    <script src="scripts/searchFilter.js"></script>
+    <script src="scripts/front.js"></script>
+    <script src="scripts/hideFilter.js"></script>
+  </body>
+</html>

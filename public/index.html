@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script
+      src="https://kit.fontawesome.com/262f393da5.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="styles/style.css" />
+    <script src="./scripts/user.js"></script>
+    </script>
+  </head>
+  <body>
+    <div class="header__offer">
+      <p id="countdown"></p>
+    </div>
+    <header class="header">
+      <nav class="navbar">
+        <img class="logo" src="images/Terabade.svg" alt="Terabade" />
+        <label for="search"></label>
+        <input type="search" id="search" name="search" placeholder="Пошук" />
+        <ul>
+          <li><a href="/Catalog.html">Чоловіки</a></li>
+          <li>Жінки</li>
+          <li>Діти</li>
+          <li>Розпродаж</li>
+          <li>Про нас</li>
+        </ul>
+        <div class="header__icons">
+          <p class="tooltip" data-tooltip="" id="tooltipElement">
+            <a href="/login.html"
+              ><img class="icon" src="images/user.svg" alt="user" />
+            </a>
+          </p>
+          <img class="icon" src="images/heart.svg" alt="heart" />
+          <div class="cart-btn">
+            <span class="nav-icon">
+              <img class="icon" src="images/Basket.svg" alt="basket" />
+            </span>
+            <div class="cart-items">0</div>
+          </div>
+        </div>
+        <p class="language">UA</p>
+      </nav>
+    </header>
+    <main>
+      <div class="background-images">
+        <img class="white-spot" src="images/White-spot.svg" alt="white-spot" />
+        <img class="sneakers" src="images/Sneakers1.svg" alt="sneakers" />
+        <img class="boy-bg" src="images/Boy1.svg" alt="boy" />
+        <img
+          class="white-spot-mid"
+          src="images/white-spot-mid.svg"
+          alt="white-spot-mid"
+        />
+        <img
+          class="white-spot-mid-footpr-1"
+          src="images/Foot1.svg"
+          alt="Footprints"
+        />
+        <img
+          class="white-spot-mid-footpr-2"
+          src="images/Foot2.svg"
+          alt="Footprints"
+        />
+        <img class="rectangle" src="images/Rectangle13.svg" alt="rectangle" />
+      </div>
+      <p class="hype">
+        ХІТ <br />
+        ПРОДАЖУ
+      </p>
+      <button class="hype-order">замовити</button>
+    </main>
+    <!-- cart -->
+    <div class="cart-overlay">
+      <div class="cart">
+        <span class="close-cart">
+          <i class="fas fa-window-close"></i>
+        </span>
+        <h2>Ваша корзина</h2>
+        <div class="cart-content"></div>
+        <div class="cart-footer">
+          <h3>Вартість: $ <span class="cart-total">0</span></h3>
+          <button class="clear-cart banner-btn nowrap">очистити кошик</button>
+        </div>
+      </div>
+    </div>
+    <!-- end of cart -->
+    <footer class="footer">
+      <p>
+        <span class="nowrap">Copyright &copy; <time id="year"></time></span>
+        <span class="nowrap">Terabade</span>
+      </p>
+    </footer>
+    <script src="scripts/changeYear.js" defer></script>
+    <script src="scripts/cart.js"></script>
+    <script src="scripts/front.js"></script>
+  </body>
+</html>
