@@ -1,10 +1,12 @@
-FROM node:20 AS build-env
+FROM node:20-alpine
+
+WORKDIR /app
+
+COPY package.json /app
+COPY package-lock.json /app
+
+RUN npm install
+
 COPY . /app
-WORKDIR /app
 
-RUN npm install --only=prod
-
-FROM gcr.io/distroless/nodejs20-debian11
-COPY --from=build-env /app /app
-WORKDIR /app
-CMD ["BackEnd/server.js"]
+CMD ["npm", "start"]
