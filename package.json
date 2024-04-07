@@ -20,5 +20,17 @@
     "eslint-plugin-prettier": "^5.0.1",
     "nodemon": "^3.0.2",
     "prettier": "^3.1.1"
-  }
+  },
+  "name": "kursova-1",
+  "version": "1.0.0",
+  "description": "our first website",
+  "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TarasBlatnoi/kursova-1.git"
+  },
+  "bugs": {
+    "url": "https://github.com/TarasBlatnoi/kursova-1/issues"
+  },
+  "homepage": "https://github.com/TarasBlatnoi/kursova-1#readme"
 }
