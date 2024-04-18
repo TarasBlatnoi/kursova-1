@@ -1,5 +1,6 @@
-"use strict"
-//variables
+let cart = []
+let buttonsDOM = []
+
 const cartBtn = document.querySelector(".cart-btn")
 const closeCartBtn = document.querySelector(".close-cart")
 const clearCartBtn = document.querySelector(".clear-cart")
@@ -9,69 +10,8 @@ const cartItems = document.querySelector(".cart-items")
 const cartTotal = document.querySelector(".cart-total")
 const cartContent = document.querySelector(".cart-content")
 const productsDOM = document.querySelector(".products-center")
-// cart
-let cart = []
-// buttons
-let buttonsDOM = []
-//getting the products
-class Products {
-  static cachedData = null
 
-  async getProducts() {
-    try {
-      if (Products.cachedData) {
-        return Products.cachedData
-      }
-      let result = await fetch("/api/v1/products")
-      let resultParsed = await result.json()
-      let products = resultParsed.result
-      products = products.map((item) => {
-        const name = item.name
-        const price = item.price
-        const id = item.ProductID
-        const image = item.image
-        const sex = item.sex
-        return { name, price, id, image, sex }
-      })
-      return products
-    } catch (error) {
-      console.log(error)
-    }
-  }
-}
- async function filterProductGender(value) {
-  const products = new Products()
-  const allProducts = await products.getProducts()
-  console.log(allProducts)
-  const ui = new UI()
-  const labelsSex = document.querySelectorAll(".sex")
-  ui.displayProducts([])
-  labelsSex.forEach((label) => {
-    if (label.classList.contains("active")) {
-      if (label.id.toUpperCase() === value.toUpperCase()) {
-        label.classList.remove("active")
-      } else {
-        const filteredProducts = allProducts.filter(
-          (product) => product.sex.toUpperCase() === label.id.toUpperCase(),
-        )
-        ui.addProducts(filteredProducts)
-      }
-    } else {
-      if (label.id.toUpperCase() === value.toUpperCase()) {
-        label.classList.add("active")
-        const filteredProducts = allProducts.filter(
-          (product) => product.sex.toUpperCase() === value.toUpperCase(),
-        )
-        ui.addProducts(filteredProducts)
-      }
-    }
-  })
-  if (!document.querySelectorAll(".card").length) {
-    ui.displayProducts(allProducts)
-  }
-}
-// display products
- class UI {
+export class UI {
   displayProducts(products) {
     let result = ""
     products.forEach((product) => {
@@ -98,13 +38,13 @@ class Products {
       result += `
              <div class="card Дорожній">
           <div class="image-container">
-            <img src=${product.image} alt="" />
+            <img src=data:image/jpeg;base64,${product.image} alt="" />
           </div>
           <button class="bag-btn" data-id=${product.id}>
           <i class="fas fa-shopping-cart">додати в кошик</i>
           </button>
           <div class="container">
-            <h3 class="product-name">${product.title}</h3>
+            <h3 class="product-name">${product.name}</h3>
             <h5>$${product.price}</h5>
           </div>
         </div>
@@ -153,7 +93,7 @@ class Products {
   addCartItem(item) {
     const div = document.createElement("div")
     div.classList.add("cart-item")
-    div.innerHTML = `<img src="${item.image}" alt="product" />
+    div.innerHTML = `<img src=data:image/jpeg;base64,${item.image} alt="product" />
           <div>
             <h4 class="nowrap">${item.title}</h4>
             <h5>$${item.price}</h5>
@@ -223,7 +163,6 @@ class Products {
   clearCart() {
     let cartItems = cart.map((item) => item.id)
     cartItems.forEach((id) => this.removeItem(id))
-    console.log(cartContent.children)
     while (cartContent.children.length > 0) {
       cartContent.removeChild(cartContent.children[0])
     }
@@ -241,13 +180,15 @@ class Products {
     return buttonsDOM.find((button) => button.dataset.id === id)
   }
 }
-//local storage
-class Storage {
+
+export class Storage {
   static saveProducts(products) {
     localStorage.setItem("products", JSON.stringify(products))
   }
   static getProduct(id) {
     let products = JSON.parse(localStorage.getItem("products"))
+    console.log(products)
+    console.log(id)
     return products.find((product) => product.id === id)
   }
   static saveCart() {
@@ -259,21 +200,3 @@ class Storage {
       : []
   }
 }
-
-document.addEventListener("DOMContentLoaded", () => {
-  const ui = new UI()
-  const products = new Products()
-  //setup app
-  ui.setupAPP()
-  //get all products
-  products
-    .getProducts()
-    .then((products) => {
-      ui.displayProducts(products)
-      Storage.saveProducts(products)
-    })
-    .then(() => {
-      ui.getBagButtons()
-      ui.cartLogic()
-    })
-})

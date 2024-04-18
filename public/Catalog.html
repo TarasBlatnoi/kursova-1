@@ -91,29 +91,26 @@
             <form class="run-form">
               <input
                 type="checkbox"
-                class="input-value"
+                class="input-value male-filter"
                 id="male"
                 name="gender"
                 value="Чоловіча"
-                onclick="filterProductGender('male')"
               />
               <label for="male" class="sex active-dot" id="male">Чоловіча</label><br/>
               <input
                 type="checkbox"
-                class="input-value"
+                class="input-value female-filter"
                 id="female"
                 name="gender"
                 value="Жіноча"
-                onclick="filterProductGender('female')"
               />
               <label for="female" class="sex active-dot" id="female">Жіноча</label><br />
               <input
                 type="checkbox"
-                class="input-value"
+                class="input-value unisex-filter"
                 id="unisex"
                 name="gender"
                 value="Унісекс"
-                onclick="filterProductGender('unisex')"
               />
               <label for="unisex" class="sex active-dot" id="unisex">Унісекс</label><br/>
             </form>
@@ -547,7 +544,6 @@
                 for="Every"
                 class="rect-size"
               ></label>
-              
               </form>
         </div>
       </div>
@@ -568,9 +564,6 @@
         </div>
       </div>
     </main>
-
-    <script src="scripts/cart.js"></script>
-    <script  src="scripts/searchFilter.js"></script>
-    <script src="scripts/hideFilter.js"></script>
+    <script type="module" src="scripts/main.js"></script>
   </body>
 </html>
