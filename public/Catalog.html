@@ -67,29 +67,6 @@
     </header>
 
     <main>
-      <!-- <div class="filter-setters">
-        <h1 class="filter-type">Чоловіче Взуття</h1>
-        <div class="hide-filter">
-          <div class="select-side">
-            <span class="Man-Title2">Приховати фільтр</span>
-            <img class="icon-filter" src="images/Filter.svg" alt="Hide" />
-          </div>
-        </div>
-      </div>
-
-      <div class="sorting-dropdown">
-        <div class="select">
-          <span class="selected"> Сортування </span>
-          <div class="caret">
-            <img class="icon-sort" src="images/Caret-Sort.svg" alt="Hide" />
-          </div>
-        </div>
-        <ul class="filter-options">
-          <li>Новинки</li>
-          <li>Ціна: Висока-Низька</li>
-          <li>Ціна: Низька-Висока</li>
-        </ul>
-      </div> -->
       <div class="filter-info">
         <h1 class="Man-Title">Чоловіче Взуття</h1>
         <div class="filter-settings">
@@ -118,27 +95,27 @@
                 id="male"
                 name="gender"
                 value="Чоловіча"
-                onclick="filterProductGender('Чоловіча')"
+                onclick="filterProductGender('male')"
               />
-              <label for="male" class="sex active-dot" id="Чоловіча">Чоловіча</label><br/>
+              <label for="male" class="sex active-dot" id="male">Чоловіча</label><br/>
               <input
                 type="checkbox"
                 class="input-value"
                 id="female"
                 name="gender"
                 value="Жіноча"
-                onclick="filterProductGender('Жіноча')"
+                onclick="filterProductGender('female')"
               />
-              <label for="female" class="sex active-dot" id="Жіноча">Жіноча</label><br />
+              <label for="female" class="sex active-dot" id="female">Жіноча</label><br />
               <input
                 type="checkbox"
                 class="input-value"
                 id="unisex"
                 name="gender"
                 value="Унісекс"
-                onclick="filterProductGender('Унісекс')"
+                onclick="filterProductGender('unisex')"
               />
-              <label for="unisex" class="sex active-dot" id="Унісекс">Унісекс</label><br/>
+              <label for="unisex" class="sex active-dot" id="unisex">Унісекс</label><br/>
             </form>
           </div>
           <div class="price-filter">
@@ -593,8 +570,7 @@
     </main>
 
     <script src="scripts/cart.js"></script>
-    <script src="scripts/searchFilter.js"></script>
-    <script src="scripts/front.js"></script>
+    <script  src="scripts/searchFilter.js"></script>
     <script src="scripts/hideFilter.js"></script>
   </body>
 </html>

@@ -15,19 +15,22 @@ let cart = []
 let buttonsDOM = []
 //getting the products
 class Products {
+  static cachedData = null
+
   async getProducts() {
     try {
+      if (Products.cachedData) {
+        return Products.cachedData
+      }
       let result = await fetch("/api/v1/products")
       let resultParsed = await result.json()
       let products = resultParsed.result
-      console.log(products)
       products = products.map((item) => {
         const name = item.name
         const price = item.price
         const id = item.ProductID
         const image = item.image
         const sex = item.sex
-        console.log({ name, price, id, image, sex })
         return { name, price, id, image, sex }
       })
       return products
@@ -36,8 +39,39 @@ class Products {
     }
   }
 }
+ async function filterProductGender(value) {
+  const products = new Products()
+  const allProducts = await products.getProducts()
+  console.log(allProducts)
+  const ui = new UI()
+  const labelsSex = document.querySelectorAll(".sex")
+  ui.displayProducts([])
+  labelsSex.forEach((label) => {
+    if (label.classList.contains("active")) {
+      if (label.id.toUpperCase() === value.toUpperCase()) {
+        label.classList.remove("active")
+      } else {
+        const filteredProducts = allProducts.filter(
+          (product) => product.sex.toUpperCase() === label.id.toUpperCase(),
+        )
+        ui.addProducts(filteredProducts)
+      }
+    } else {
+      if (label.id.toUpperCase() === value.toUpperCase()) {
+        label.classList.add("active")
+        const filteredProducts = allProducts.filter(
+          (product) => product.sex.toUpperCase() === value.toUpperCase(),
+        )
+        ui.addProducts(filteredProducts)
+      }
+    }
+  })
+  if (!document.querySelectorAll(".card").length) {
+    ui.displayProducts(allProducts)
+  }
+}
 // display products
-class UI {
+ class UI {
   displayProducts(products) {
     let result = ""
     products.forEach((product) => {
