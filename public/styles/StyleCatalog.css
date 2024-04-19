@@ -606,14 +606,16 @@ h5 {
 }
 /*---------- Cart Item -------------------- */
 .cart-item {
-  display: grid;
+  display: flex;
   align-items: center;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-column-gap: 1.5rem;
+  justify-content: space-between;
   margin: 1.5rem 0;
 }
+.cart-name {
+  width: 56%;
+}
 .cart-item img {
-  width: 100%;
+  width: 25%;
   height: auto;
 }
 .cart-item h4 {
@@ -649,7 +651,7 @@ h5 {
   margin-bottom: 1rem;
 }
 .icons-change {
-  margin-left: auto;
+  width: 5%;
   margin-right: 1em;
 }
 /* --------------- End of Cart ---------------- */

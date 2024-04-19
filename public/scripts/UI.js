@@ -57,6 +57,7 @@ export class UI {
     buttonsDOM = buttons
     buttons.forEach((button) => {
       let id = button.dataset.id
+      id = Number(id)
       let inCart = cart.find((item) => item.id === id)
       if (inCart) {
         button.innerText = "В кошику"
@@ -91,11 +92,12 @@ export class UI {
     cartItems.innerText = itemsTotal
   }
   addCartItem(item) {
+    console.log(item)
     const div = document.createElement("div")
     div.classList.add("cart-item")
     div.innerHTML = `<img src=data:image/jpeg;base64,${item.image} alt="product" />
-          <div>
-            <h4 class="nowrap">${item.title}</h4>
+          <div class="cart-name">
+            <h4 class="nowrap">${item.name}</h4>
             <h5>$${item.price}</h5>
             <span class="remove-item" data-id=${item.id}>Видалити</span>
           </div>
@@ -134,11 +136,13 @@ export class UI {
       if (event.target.classList.contains("remove-item")) {
         let removeItem = event.target
         let id = removeItem.dataset.id
+        id = Number(id)
         cartContent.removeChild(removeItem.parentElement.parentElement)
         this.removeItem(id)
       } else if (event.target.classList.contains("fa-chevron-up")) {
         let addAmount = event.target
         let id = addAmount.dataset.id
+        id = Number(id)
         let tempItem = cart.find((item) => item.id === id)
         tempItem.amount += 1
         Storage.saveCart(cart)
@@ -147,6 +151,7 @@ export class UI {
       } else if (event.target.classList.contains("fa-chevron-down")) {
         let lowerAmount = event.target
         let id = lowerAmount.dataset.id
+        id = Number(id)
         let tempItem = cart.find((item) => item.id === id)
         tempItem.amount -= 1
         if (tempItem.amount > 0) {
@@ -177,7 +182,7 @@ export class UI {
     button.innerHTML = `<i class="fas fa-shopping-cart"></i>додати в кошик`
   }
   getSingleButton(id) {
-    return buttonsDOM.find((button) => button.dataset.id === id)
+    return buttonsDOM.find((button) => Number(button.dataset.id) === id)
   }
 }
 
@@ -187,9 +192,9 @@ export class Storage {
   }
   static getProduct(id) {
     let products = JSON.parse(localStorage.getItem("products"))
-    console.log(products)
-    console.log(id)
-    return products.find((product) => product.id === id)
+    return products.find((product) => {
+      return product.id === id
+    })
   }
   static saveCart() {
     localStorage.setItem("cart", JSON.stringify(cart))
