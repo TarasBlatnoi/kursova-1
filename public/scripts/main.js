@@ -2,7 +2,8 @@
 import hideFilter from "./hideFilter.js"
 import filterProductGender from "./filterProductGender.js"
 import Products from "./Products.js"
-import { UI, Storage } from "./UI.js"
+import UI from "./UI.js"
+import Storage from "./Storage.js"
 filterProductGender()
 hideFilter()
 

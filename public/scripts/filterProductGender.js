@@ -1,5 +1,5 @@
 import Products from "./Products.js"
-import { UI } from "./UI.js"
+import UI from "./UI.js"
 export default function wrapperFilterProductGender() {
   async function filterProductGender(value) {
     const products = new Products()

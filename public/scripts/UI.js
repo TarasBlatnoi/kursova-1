@@ -1,4 +1,6 @@
-let cart = []
+import Storage from "./Storage.js"
+
+let cart
 let buttonsDOM = []
 
 const cartBtn = document.querySelector(".cart-btn")
@@ -11,7 +13,7 @@ const cartTotal = document.querySelector(".cart-total")
 const cartContent = document.querySelector(".cart-content")
 const productsDOM = document.querySelector(".products-center")
 
-export class UI {
+export default class UI {
   displayProducts(products) {
     let result = ""
     products.forEach((product) => {
@@ -92,7 +94,6 @@ export class UI {
     cartItems.innerText = itemsTotal
   }
   addCartItem(item) {
-    console.log(item)
     const div = document.createElement("div")
     div.classList.add("cart-item")
     div.innerHTML = `<img src=data:image/jpeg;base64,${item.image} alt="product" />
@@ -183,25 +184,5 @@ export class UI {
   }
   getSingleButton(id) {
     return buttonsDOM.find((button) => Number(button.dataset.id) === id)
-  }
-}
-
-export class Storage {
-  static saveProducts(products) {
-    localStorage.setItem("products", JSON.stringify(products))
-  }
-  static getProduct(id) {
-    let products = JSON.parse(localStorage.getItem("products"))
-    return products.find((product) => {
-      return product.id === id
-    })
-  }
-  static saveCart() {
-    localStorage.setItem("cart", JSON.stringify(cart))
-  }
-  static getCart() {
-    return localStorage.getItem("cart")
-      ? JSON.parse(localStorage.getItem("cart"))
-      : []
   }
 }
