@@ -1,9 +1,11 @@
 "use strict"
 import hideFilter from "./hideFilter.js"
 import filterProductGender from "./filterProductGender.js"
+import changeYear from "./changeYear.js"
 import Products from "./Products.js"
 import UI from "./UI.js"
 import Storage from "./Storage.js"
+changeYear()
 filterProductGender()
 hideFilter()
 

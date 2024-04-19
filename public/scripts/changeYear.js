@@ -1,4 +1,6 @@
-const year = document.getElementById("year");
-const thisYear = new Date().getFullYear();
-year.setAttribute("datetime", thisYear);
-year.textContent = thisYear;
+export default function changeYear() {
+  const year = document.getElementById("year")
+  const thisYear = new Date().getFullYear()
+  year.setAttribute("datetime", thisYear)
+  year.textContent = thisYear
+}

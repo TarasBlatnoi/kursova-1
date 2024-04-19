@@ -313,9 +313,6 @@ nav li {
   transform: translateX(0);
 }
 
-.left-filter-hide {
-}
-
 .wrapper {
   margin-top: 4em;
   display: flex;
