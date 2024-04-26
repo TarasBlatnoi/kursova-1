@@ -5,20 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const tooltipElement = document.getElementById("tooltipElement");
-        const name = sessionStorage.getItem("name");
-        if (name === null || name === "null") {
-          tooltipElement.setAttribute(
-            "data-tooltip",
-            "Ввійдіть в свій аккаунт"
-          );
-        } else {
-          tooltipElement.setAttribute("data-tooltip", `Привіт, ${name}`);
-        }
-      });
-    </script>
     <script
       src="https://kit.fontawesome.com/262f393da5.js"
       crossorigin="anonymous"
@@ -564,6 +550,12 @@
         </div>
       </div>
     </main>
+    <footer class="footer">
+      <p>
+        <span class="nowrap">Copyright &copy; <time id="year"></time></span>
+        <span class="nowrap">Terabade</span>
+      </p>
+    </footer>
     <script type="module" src="scripts/main.js"></script>
   </body>
 </html>
