@@ -5,6 +5,8 @@ import changeYear from "./changeYear.js"
 import Products from "./Products.js"
 import UI from "./UI.js"
 import Storage from "./Storage.js"
+import updateCountdown from "./updateCountdown.js"
+updateCountdown()
 changeYear()
 filterProductGender()
 hideFilter()

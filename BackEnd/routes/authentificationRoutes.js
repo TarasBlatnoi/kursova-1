@@ -4,13 +4,6 @@ const router = new express.Router()
 const passport = require("passport")
 const userController = require("../controllers/userController")
 const { isAuth, isAdmin } = require("../auth/middleware")
-router.route("/login").get((req, res) => {
-  res.sendFile(path.join(__dirname, "..", "..", "public", "login.html"))
-})
-
-router.route("/register").get((req, res) => {
-  res.sendFile(path.join(__dirname, "..", "..", "public", "register.html"))
-})
 
 router.route("/login").post(
   // (req, res, next) => {
@@ -23,11 +16,11 @@ router.route("/login").post(
   //   // ... rest of the code
   //   next()
   // },
+
   passport.authenticate("local", {
-    failureRedirect: "/login",
+    failureRedirect: "/login.html",
     successRedirect: "/",
   }),
- 
 )
 
 router.get("/protected-route", isAuth, (req, res) => {
@@ -59,15 +52,15 @@ router.get("/login-failure", (req, res) => {
 })
 
 router.get("/api/v1/user", (req, res, next) => {
-  if(req.user){
+  if (req.user) {
     const user = {
-   UserID: req.user.UserID,
-   email: req.user.email,
-   isAdmin: req.user.isAdmin,
+      UserID: req.user.UserID,
+      email: req.user.email,
+      isAdmin: req.user.isAdmin,
+    }
+    res.json(user)
   }
-  res.json(user)
-  }
- next()
+  next()
 })
 
 router.route("/register").post(userController.createNewUser)
