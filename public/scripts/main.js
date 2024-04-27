@@ -10,21 +10,23 @@ updateCountdown()
 changeYear()
 filterProductGender()
 hideFilter()
-
-document.addEventListener("DOMContentLoaded", () => {
-  const ui = new UI()
-  const products = new Products()
-  //setup app
-  ui.setupAPP()
-  //get all products
-  products
-    .getProducts()
-    .then((products) => {
-      ui.displayProducts(products)
-      Storage.saveProducts(products)
-    })
-    .then(() => {
-      ui.getBagButtons()
-      ui.cartLogic()
-    })
-})
+const products = document.getElementById("products")
+if (products) {
+  document.addEventListener("DOMContentLoaded", () => {
+    const ui = new UI()
+    const products = new Products()
+    //setup app
+    ui.setupAPP()
+    //get all products
+    products
+      .getProducts()
+      .then((products) => {
+        ui.displayProducts(products)
+        Storage.saveProducts(products)
+      })
+      .then(() => {
+        ui.getBagButtons()
+        ui.cartLogic()
+      })
+  })
+}

@@ -31,13 +31,15 @@ export default function wrapperFilterProductGender() {
       ui.displayProducts(allProducts)
     }
   }
-  document.querySelector(".male-filter").addEventListener("click", () => {
-    filterProductGender("male")
-  })
-  document.querySelector(".female-filter").addEventListener("click", () => {
-    filterProductGender("female")
-  })
-  document.querySelector(".unisex-filter").addEventListener("click", () => {
-    filterProductGender("unisex")
-  })
+  if (document.querySelector(".left-filter")) {
+    document.querySelector(".male-filter").addEventListener("click", () => {
+      filterProductGender("male")
+    })
+    document.querySelector(".female-filter").addEventListener("click", () => {
+      filterProductGender("female")
+    })
+    document.querySelector(".unisex-filter").addEventListener("click", () => {
+      filterProductGender("unisex")
+    })
+  }
 }

@@ -1,8 +1,8 @@
 export default function hideFilter() {
   document.addEventListener("DOMContentLoaded", function () {
-    document
-      .querySelector(".Select-Hide")
-      .addEventListener("click", function () {
+    const SelectHide = document.querySelector(".Select-Hide")
+    if (SelectHide) {
+      SelectHide.addEventListener("click", function () {
         const filterContainer = document.querySelector(".left-filter")
         const icon = document.querySelector(".icon-filter")
         const products = document.getElementById("products")
@@ -20,5 +20,6 @@ export default function hideFilter() {
           icon.classList.remove("icon-filter-rotate")
         }
       })
+    }
   })
 }

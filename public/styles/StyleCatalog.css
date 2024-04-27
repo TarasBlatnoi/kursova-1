@@ -670,7 +670,7 @@ h5 {
   background-color: #daba9c;
 }
 
-[data-tooltip] {
+/* [data-tooltip] {
   position: relative;
 }
 
@@ -694,4 +694,4 @@ h5 {
 [data-tooltip]:hover::after {
   opacity: 1;
   top: 2em;
-}
+} */
