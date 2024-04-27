@@ -37,7 +37,7 @@ router.get("/logout", (req, res, next) => {
     if (err) {
       return next(err)
     }
-    res.redirect("/protected-route")
+    res.redirect("/login.html")
   })
 })
 
@@ -51,7 +51,7 @@ router.get("/login-failure", (req, res) => {
   res.send("You entered the wrong password.")
 })
 
-router.get("/api/v1/user", (req, res, next) => {
+router.get("/api/v1/checkUser", (req, res, next) => {
   if (req.user) {
     const user = {
       UserID: req.user.UserID,

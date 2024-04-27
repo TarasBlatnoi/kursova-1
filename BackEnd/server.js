@@ -8,6 +8,7 @@ const userRoutes = require("./routes/userRoutes")
 const productRoutes = require("./routes/productRoutes")
 const passport = require("passport")
 const authentificationRoutes = require("./routes/authentificationRoutes")
+const favoriteRoutes = require("./routes/favoriteRoutes")
 require("./auth/passport")
 const session = db.session
 const app = express()
@@ -51,7 +52,7 @@ app.use((req, res, next) => {
 
 app.use("/api/v1/users", userRoutes)
 app.use("/api/v1/products", productRoutes)
-
+app.use("/", favoriteRoutes)
 app.use("/", authentificationRoutes)
 
 const server = app.listen(PORT, () => {

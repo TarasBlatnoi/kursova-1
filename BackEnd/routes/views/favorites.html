@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script
+      src="https://kit.fontawesome.com/262f393da5.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="styles/StyleCatalog.css" />
+  </head>
+  <body>
+    <div class="header__offer">
+      <p id="countdown"></p>
+    </div>
+    <header class="header">
+      <nav class="header__navbar">
+        <a href="/"
+          ><img class="logo" src="images/Terabade.svg" alt="Terabade"
+        /></a>
+        <div id="search-container">
+          <input type="search" id="search-input" placeholder="Пошук" />
+          <button id="search">
+            <img class="SearchPH" src="images/search.png" alt="Search" />
+          </button>
+        </div>
+        <ul class="Navbar-UL">
+          <li>Чоловіки</li>
+          <li>Жінки</li>
+          <li>Діти</li>
+          <li>Розпродаж</li>
+          <li>Про нас</li>
+        </ul>
+        <div class="header__icons">
+          <p class="tooltip" data-tooltip="Привіт, " id="tooltipElement">
+            <a href="/login.html"
+              ><img class="icon" src="images/user.svg" alt="user" />
+            </a>
+          </p>
+          <a href="/favorites">
+            <img class="icon" src="images/heart.svg" alt="heart" />
+          </a>
+          <div class="cart-btn">
+            <span class="nav-icon">
+              <img class="icon" src="images/Basket.svg" alt="basket" />
+            </span>
+            <div class="cart-items">0</div>
+          </div>
+        </div>
+        <p class="language">UA</p>
+      </nav>
+      <img class="white-spot" src="images/Navbar.png" alt="white-spot" />
+    </header>
+
+    <main>
+      <div class="filter-info">
+        <h1 class="Man-Title">Чоловіче Взуття</h1>
+        <div class="filter-settings">
+          <div class="Select-Hide">
+            <span class="Man-Title2 nowrap">Приховати фільтр</span>
+            <img class="icon-filter" src="images/Filter.svg" alt="Hide" />
+          </div>
+          <div class="select">
+            <span class="selected"> Сортування </span>
+            <img
+              class="icon-sort caret"
+              src="images/Caret-Sort.svg"
+              alt="Hide"
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        id="products"
+        class="products-center"
+        style="width: 70%; grid-column-gap: 2em"
+      ></div>
+      <div class="cart-overlay">
+        <div class="cart">
+          <span class="close-cart">
+            <i class="fas fa-window-close"></i>
+          </span>
+          <h2>Ваша корзина</h2>
+          <div class="cart-content">
+            <!-- <div class="cart-item"></div> -->
+          </div>
+          <div class="cart-footer">
+            <h3>Вартість: $<span class="cart-total">0</span></h3>
+            <button class="clear-cart nowrap banner-btn">Очистити кошик</button>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer class="footer">
+      <p>
+        <span class="nowrap">Copyright &copy; <time id="year"></time></span>
+        <span class="nowrap">Terabade</span>
+      </p>
+    </footer>
+    <script type="module" src="scripts/main.js"></script>
+  </body>
+</html>
