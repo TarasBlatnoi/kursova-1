@@ -26,14 +26,14 @@ const asyncWrapper = (callback) => {
 const getAllFavoriteproducts = asyncWrapper(
   FavoriteProduct.findAllFavoriteProducts,
 )
-// const getProductById = asyncWrapper(Product.getById)
+const addToFavorite = asyncWrapper(FavoriteProduct.addFavoriteProduct)
 // const createProduct = asyncWrapper(Product.create)
 // const updateProduct = asyncWrapper(Product.updateById)
 // const deleteProduct = asyncWrapper(Product.deleteById)
 
 module.exports = {
   getAllFavoriteproducts,
-  //   getProductById,
+  addToFavorite,
   //   createProduct,
   //   updateProduct,
   //   deleteProduct,

@@ -22,4 +22,4 @@ module.exports = {
     ecmaVersion: "latest",
   },
   rules: {},
-};
+}

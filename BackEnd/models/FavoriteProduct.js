@@ -13,6 +13,10 @@ class FavoriteProduct {
     addToFavorite: `
         INSERT INTO  favoriteproduct(User_UserID, Product_ProductID) VALUES(?,?);
         `,
+    deleteFromFavorites: `
+    DELETE FROM favoriteproduct 
+    WHERE (User_UserID = ?) AND (Product_ProductID = ?);
+    `,
   }
 
   static async commitQuery(sql, data) {
@@ -37,19 +41,20 @@ class FavoriteProduct {
       FavoriteProduct.sqlQueries.getAll,
       dataForDB,
     )
-    console.log(products)
     return products
   }
-  static async addFavoriteProduct(userId, productID) {
+  static async addFavoriteProduct(userId, { ProductID }) {
     const dataForDB = []
     dataForDB.push(userId)
-    dataForDB.push(productID)
-    const products = await FavoriteProduct.commitQuery(
+    dataForDB.push(ProductID)
+    const product = await FavoriteProduct.commitQuery(
       FavoriteProduct.sqlQueries.addToFavorite,
       dataForDB,
     )
-    console.log(products)
-    return products
+    if (product.serverStatus === 2) {
+      return [true]
+    }
+    return []
   }
 }
 

@@ -14,4 +14,5 @@ const log = (req, res, next) => {
 router.use(isAuth)
 router.get("/", getHTMLFavorite)
 router.get("/products", favoriteProductController.getAllFavoriteproducts)
+router.post("/products", favoriteProductController.addToFavorite)
 module.exports = router
