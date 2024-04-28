@@ -52,7 +52,7 @@ app.use((req, res, next) => {
 
 app.use("/api/v1/users", userRoutes)
 app.use("/api/v1/products", productRoutes)
-app.use("/", favoriteRoutes)
+app.use("/favorites", favoriteRoutes)
 app.use("/", authentificationRoutes)
 
 const server = app.listen(PORT, () => {
