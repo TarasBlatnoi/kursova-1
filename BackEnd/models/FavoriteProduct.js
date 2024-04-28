@@ -13,7 +13,7 @@ class FavoriteProduct {
     addToFavorite: `
         INSERT INTO  favoriteproduct(User_UserID, Product_ProductID) VALUES(?,?);
         `,
-    deleteFromFavorites: `
+    deleteFromFavorite: `
     DELETE FROM favoriteproduct 
     WHERE (User_UserID = ?) AND (Product_ProductID = ?);
     `,
@@ -34,27 +34,34 @@ class FavoriteProduct {
     }
   }
 
-  static async findAllFavoriteProducts(userId) {
-    const dataForDB = []
-    dataForDB.push(userId)
-    const products = await FavoriteProduct.commitQuery(
-      FavoriteProduct.sqlQueries.getAll,
-      dataForDB,
-    )
-    return products
+  static async modifyFavoriteProduct(userId, ProductID, sqlQuery) {
+    const dataForDB = [userId, ProductID]
+    const result = await FavoriteProduct.commitQuery(sqlQuery, dataForDB)
+    return result.affectedRows > 0 ? [true] : result
   }
-  static async addFavoriteProduct(userId, { ProductID }) {
-    const dataForDB = []
-    dataForDB.push(userId)
-    dataForDB.push(ProductID)
-    const product = await FavoriteProduct.commitQuery(
-      FavoriteProduct.sqlQueries.addToFavorite,
-      dataForDB,
+
+  static async findAllFavoriteProducts(userId) {
+    return FavoriteProduct.modifyFavoriteProduct(
+      userId,
+      null,
+      FavoriteProduct.sqlQueries.getAll,
     )
-    if (product.serverStatus === 2) {
-      return [true]
-    }
-    return []
+  }
+
+  static async addFavoriteProduct(userId, ProductID) {
+    return FavoriteProduct.modifyFavoriteProduct(
+      userId,
+      ProductID,
+      FavoriteProduct.sqlQueries.addToFavorite,
+    )
+  }
+
+  static async deleteFavoriteProduct(userId, ProductID) {
+    return FavoriteProduct.modifyFavoriteProduct(
+      userId,
+      ProductID,
+      FavoriteProduct.sqlQueries.deleteFromFavorite,
+    )
   }
 }
 

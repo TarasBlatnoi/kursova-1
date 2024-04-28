@@ -8,7 +8,7 @@ const asyncWrapper = (callback) => {
     try {
       args.push(req.user.UserID)
       if (req.body) {
-        args.push(req.body)
+        args.push(req.body.ProductID)
       }
       const result = await callback(...args)
       if (result.length) {
@@ -27,14 +27,16 @@ const getAllFavoriteproducts = asyncWrapper(
   FavoriteProduct.findAllFavoriteProducts,
 )
 const addToFavorite = asyncWrapper(FavoriteProduct.addFavoriteProduct)
+const deleteFavoriteProduct = asyncWrapper(
+  FavoriteProduct.deleteFavoriteProduct,
+)
 // const createProduct = asyncWrapper(Product.create)
 // const updateProduct = asyncWrapper(Product.updateById)
-// const deleteProduct = asyncWrapper(Product.deleteById)
 
 module.exports = {
   getAllFavoriteproducts,
   addToFavorite,
+  deleteFavoriteProduct,
   //   createProduct,
   //   updateProduct,
-  //   deleteProduct,
 }

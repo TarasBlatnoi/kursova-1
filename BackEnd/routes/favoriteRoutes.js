@@ -15,4 +15,5 @@ router.use(isAuth)
 router.get("/", getHTMLFavorite)
 router.get("/products", favoriteProductController.getAllFavoriteproducts)
 router.post("/products", favoriteProductController.addToFavorite)
+router.delete("/products", favoriteProductController.deleteFavoriteProduct)
 module.exports = router
