@@ -6,7 +6,6 @@ const { isAuth } = require("../auth/middleware")
 const router = new express.Router()
 const getHTMLFavorite = (req, res, next) => {
   res.sendFile(__dirname + "/views/favorites.html")
-  next()
 }
 const log = (req, res, next) => {
   console.log(`This is user id ${req.user.UserID}`)
