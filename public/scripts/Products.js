@@ -1,11 +1,11 @@
 export default class Products {
   static cachedData = null
-  async getProducts() {
+  async getProducts(url) {
     try {
       if (Products.cachedData) {
         return Products.cachedData
       }
-      let result = await fetch("/api/v1/products")
+      let result = await fetch(url)
       let resultParsed = await result.json()
       let products = resultParsed.result
       products = products.map((item) => {

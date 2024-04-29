@@ -12,7 +12,7 @@ updateCountdown()
 changeYear()
 filterProductGender()
 hideFilter()
-const products = document.getElementById("products")
+const products = document.querySelector(".products-center")
 if (products) {
   document.addEventListener("DOMContentLoaded", () => {
     const ui = new UI()
@@ -21,7 +21,7 @@ if (products) {
     ui.setupAPP()
     //get all products
     products
-      .getProducts()
+      .getProducts("/api/v1/products")
       .then((products) => {
         ui.displayProducts(products)
         Storage.saveProducts(products)
@@ -32,3 +32,6 @@ if (products) {
       })
   })
 }
+export { UI }
+export { Storage }
+export { Products }

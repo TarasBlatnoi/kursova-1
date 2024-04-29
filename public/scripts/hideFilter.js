@@ -5,7 +5,7 @@ export default function hideFilter() {
       SelectHide.addEventListener("click", function () {
         const filterContainer = document.querySelector(".left-filter")
         const icon = document.querySelector(".icon-filter")
-        const products = document.getElementById("products")
+        const products = document.querySelector(".products-center")
         if (!filterContainer.classList.contains("left-filter-hide")) {
           filterContainer.classList.add("left-filter-hide")
           filterContainer.style.margin = "0 0 0 -45vh"

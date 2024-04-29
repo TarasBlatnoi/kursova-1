@@ -1,19 +1,22 @@
-document.addEventListener("DOMContentLoaded", async () => {
-  try {
-    const favoriteProducts = await fetch("/favorites/products")
-    let favoriteProductsParsed = await favoriteProducts.json()
-
-    favoriteProductsParsed = favoriteProductsParsed.result.map((item) => {
-      const name = item.name
-      const price = item.price
-      const id = item.ProductID
-      const image = item.image
-      const sex = item.sex
-      return { name, price, id, image, sex }
-    })
-    console.log(favoriteProductsParsed)
-    return favoriteProductsParsed
-  } catch (err) {
-    console.error(err)
-  }
-})
+"use strict"
+import { UI, Storage, Products } from "../scripts/main.js"
+const products = document.getElementById("favorite-products")
+if (products) {
+  document.addEventListener("DOMContentLoaded", () => {
+    const ui = new UI()
+    const products = new Products()
+    //setup app
+    ui.setupAPP()
+    //get all products
+    products
+      .getProducts("/favorites/products")
+      .then((products) => {
+        ui.displayProducts(products)
+        Storage.saveProducts(products)
+      })
+      .then(() => {
+        ui.getBagButtons()
+        ui.cartLogic()
+      })
+  })
+}
