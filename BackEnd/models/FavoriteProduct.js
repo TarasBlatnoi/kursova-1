@@ -1,4 +1,5 @@
 const db = require("../database")
+const { imageToBase64 } = require("../utils/imageToBase64")
 class FavoriteProduct {
   static sqlQueries = {
     getAll: `
@@ -30,6 +31,7 @@ class FavoriteProduct {
     try {
       connection = await db.promisePool.getConnection()
       const [result] = await connection.execute(sql, filteredData)
+      imageToBase64(result)
       return result
     } catch (err) {
       console.error(err)
