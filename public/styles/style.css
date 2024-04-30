@@ -79,10 +79,6 @@ body {
 .header__navbar {
   height: 100%;
 }
-nav {
-  position: relative;
-  z-index: 100;
-}
 
 .header__navbar {
   height: 10%;
@@ -116,24 +112,92 @@ label[for="search"] {
   border: 1px #fbfaff solid;
   margin-top: 0.4em;
 }
-.navbar {
+.navbar-small {
   top: 0;
   width: 100%;
   display: flex;
-  z-index: 102;
   justify-content: space-between;
   align-items: center;
   padding: 1em 1em;
+  position: relative;
+  z-index: 100;
 }
-ul {
+span {
+  font-family: "Courier New", Courier, monospace;
+}
+
+a {
+  text-decoration: none;
+  display: inline-block;
+  color: #1c1c1c;
+}
+
+a:hover,
+a:focus {
+  transform: scale(1.08);
+  transition: all 0.3s;
+}
+.navbar-interactive {
+  font-size: 1rem;
+  display: none;
+  position: relative;
+  z-index: 105;
+  background-color: #fbfaff;
+  transform-origin: top center;
+  height: 500%;
+  animation: showMenu 0.5s ease-in-out forwards;
+}
+:is(header:hover, header:focus-within) nav {
+  display: flex;
+}
+@keyframes showMenu {
+  0% {
+    transform: scaleY(0);
+  }
+
+  80% {
+    transform: scaleY(1.1);
+  }
+
+  100% {
+    transform: scaleY(1);
+  }
+}
+
+.ul-navbar-small {
   list-style: none;
   padding: 0;
   display: flex;
-  justify-content: center;
 }
-nav li {
+.li-navbar-small {
   margin-left: min(2em, 30px);
   font-size: 1.32rem;
+}
+.ul-navbar-interactive {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  list-style: none;
+  width: 40%;
+  margin: 1.7em;
+  margin-left: auto;
+}
+nav .li-navbar-interactive {
+  padding-left: 4em;
+  margin-bottom: 0.7em;
+}
+.wrapper-sub-li-navbar-interactive {
+  font-family: Arista-Pro-Light;
+  margin-top: 0.6em;
+  color: #686868;
+}
+.sub-li-navbar-interactive {
+  margin-bottom: 0.5em;
+}
+
+.man-image {
+  margin-left: 3em;
+  margin-right: 4em;
 }
 
 .language {
@@ -473,29 +537,3 @@ main {
   text-transform: capitalize;
   margin-bottom: 1rem;
 }
-
-/* [data-tooltip] {
-  position: relative;
-}
-
-[data-tooltip]::after {
-  content: attr(data-tooltip);
-  position: absolute;
-  width: 300px;
-  left: -120px;
-  top: 0;
-  background: rgba(0, 0, 0, 0.705);
-  color: #fff;
-  padding: 0.5em;
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-  pointer-events: none;
-  opacity: 0;
-  transition: 1s;
-  text-align: center;
-  border-radius: 15px;
-}
-
-[data-tooltip]:hover::after {
-  opacity: 1;
-  top: 2em;
-} */
