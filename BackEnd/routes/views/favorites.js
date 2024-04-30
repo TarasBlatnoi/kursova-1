@@ -12,7 +12,7 @@ if (products) {
       .getProducts("/favorites/products")
       .then((products) => {
         ui.displayProducts(products)
-        Storage.saveProducts(products)
+        Storage.saveFavoriteProducts(products)
       })
       .then(() => {
         ui.getBagButtons()

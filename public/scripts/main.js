@@ -12,7 +12,7 @@ updateCountdown()
 changeYear()
 filterProductGender()
 hideFilter()
-const products = document.querySelector(".products-center")
+const products = document.getElementById("products")
 if (products) {
   document.addEventListener("DOMContentLoaded", () => {
     const ui = new UI()

@@ -1,6 +1,7 @@
 export default class Products {
   static cachedData = null
   async getProducts(url) {
+    console.log("Get Products called with this url:", url)
     try {
       if (Products.cachedData) {
         return Products.cachedData
