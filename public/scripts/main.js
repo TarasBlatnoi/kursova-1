@@ -7,11 +7,13 @@ import UI from "./UI.js"
 import Storage from "./Storage.js"
 import updateCountdown from "./updateCountdown.js"
 import user from "./user.js"
+import showHeader from "./showHeader.js"
 user()
 updateCountdown()
 changeYear()
 filterProductGender()
 hideFilter()
+showHeader()
 const products = document.getElementById("products")
 if (products) {
   document.addEventListener("DOMContentLoaded", () => {

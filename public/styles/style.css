@@ -24,6 +24,21 @@ button,
 textarea {
   font: inherit;
 }
+span {
+  font-family: "Courier New", Courier, monospace;
+}
+
+a {
+  text-decoration: none;
+  display: inline-block;
+  color: #1c1c1c;
+}
+
+a:hover,
+a:focus {
+  transform: scale(1.08);
+  transition: all 0.3s;
+}
 /*Variables*/
 :root {
   /*COLORS*/
@@ -73,6 +88,8 @@ body {
   background-color: #1c1c1c;
 }
 .header {
+  position: relative;
+  z-index: 1000;
   color: #1c1c1c;
   height: 3.5%;
 }
@@ -114,29 +131,15 @@ label[for="search"] {
 }
 .navbar-small {
   top: 0;
+  height: 100%;
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1em 1em;
   position: relative;
   z-index: 100;
 }
-span {
-  font-family: "Courier New", Courier, monospace;
-}
 
-a {
-  text-decoration: none;
-  display: inline-block;
-  color: #1c1c1c;
-}
-
-a:hover,
-a:focus {
-  transform: scale(1.08);
-  transition: all 0.3s;
-}
 .navbar-interactive {
   font-size: 1rem;
   display: none;
@@ -145,11 +148,16 @@ a:focus {
   background-color: #fbfaff;
   transform-origin: top center;
   height: 500%;
-  animation: showMenu 0.5s ease-in-out forwards;
 }
-:is(header:hover, header:focus-within) nav {
-  display: flex;
+
+.animated-show {
+  animation: showMenu 0.45s ease-in-out forwards;
 }
+
+.animated-hide {
+  animation: hideMenu 0.45s ease-in-out forwards;
+}
+
 @keyframes showMenu {
   0% {
     transform: scaleY(0);
@@ -164,10 +172,24 @@ a:focus {
   }
 }
 
+@keyframes hideMenu {
+  0% {
+    transform: scaleY(1);
+  }
+
+  100% {
+    transform: scaleY(0);
+  }
+}
+
 .ul-navbar-small {
+  height: 100%;
   list-style: none;
-  padding: 0;
   display: flex;
+  align-items: center;
+}
+.li-navbar-small-first {
+  font-size: 1.32rem;
 }
 .li-navbar-small {
   margin-left: min(2em, 30px);
