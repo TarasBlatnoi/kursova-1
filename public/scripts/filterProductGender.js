@@ -3,7 +3,7 @@ import UI from "./UI.js"
 export default function wrapperFilterProductGender() {
   async function filterProductGender(value) {
     const products = new Products()
-    const allProducts = await products.getProducts()
+    const allProducts = await products.getProducts("/api/v1/products")
     const ui = new UI()
     const labelsSex = document.querySelectorAll(".sex")
     ui.displayProducts([])

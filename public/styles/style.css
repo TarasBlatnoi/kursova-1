@@ -24,7 +24,7 @@ button,
 textarea {
   font: inherit;
 }
-span {
+.span-courier {
   font-family: "Courier New", Courier, monospace;
 }
 
@@ -93,13 +93,6 @@ body {
   color: #1c1c1c;
   height: 3.5%;
 }
-.header__navbar {
-  height: 100%;
-}
-
-.header__navbar {
-  height: 10%;
-}
 
 .header__offer {
   color: #1c1c1c;
@@ -134,7 +127,7 @@ label[for="search"] {
   height: 100%;
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   position: relative;
   z-index: 100;
