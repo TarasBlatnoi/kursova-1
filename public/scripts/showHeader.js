@@ -16,20 +16,26 @@ export default function showHeader() {
     if (mouseY < bounds.top) {
       navbar.classList.remove("animated-show")
       navbar.classList.add("animated-hide")
+      ul.style.height = "30%"
     }
 
     // Check if the mouse is leaving from the sides
     if (mouseX < bounds.left || mouseX > bounds.right) {
       navbar.classList.remove("animated-show")
       navbar.classList.add("animated-hide")
+      ul.style.height = "30%"
     }
   })
 
+  navbar.addEventListener("mouseover", function (event) {
+    ul.style.height = "100%"
+  })
   navbar.addEventListener("mouseout", function (event) {
     const relatedTarget = event.relatedTarget
     if (!navbar.contains(relatedTarget)) {
       navbar.classList.remove("animated-show")
       navbar.classList.add("animated-hide")
+      ul.style.height = "30%"
     }
   })
 }

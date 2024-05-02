@@ -106,6 +106,22 @@ label[for="search"] {
   display: none;
 }
 
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #fbfaff;
+  -webkit-border-radius: 20px;
+  border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb {
+  -webkit-border-radius: 20px;
+  border-radius: 20px;
+  background: #bfbec3;
+}
+
 #search {
   /* background-image: url("../images/search.png"); */
   background-repeat: no-repeat;
@@ -133,7 +149,7 @@ label[for="search"] {
   font-size: 1rem;
   display: none;
   position: relative;
-  z-index: 95;
+  z-index: 104;
   background-color: #fbfaff;
   transform-origin: top center;
   height: 400%;
@@ -172,7 +188,7 @@ label[for="search"] {
 }
 
 .ul-navbar-small {
-  height: 100%;
+  height: 30%;
   list-style: none;
   display: flex;
   align-items: center;
@@ -387,16 +403,22 @@ nav .li-navbar-interactive {
 }
 
 .left-filter {
+  display: flex;
+  width: 45vh;
   font-family: var(--FFG);
   color: #fbfaff;
   flex-direction: column;
-  border-right: 1px solid #fbfaff;
-  transition: var(--mainTransition);
-  transform: translateX(0);
+  background-color: #1c1c1c;
+  position: sticky;
+  top: 6em;
+  z-index: 80;
+  overflow-y: auto;
+  height: 90vh;
 }
 
 .wrapper {
   margin-top: 4em;
+  transition: var(--mainTransition);
   display: flex;
 }
 
@@ -409,6 +431,10 @@ nav .li-navbar-interactive {
   justify-content: space-between;
   margin-top: 3em;
   display: flex;
+  background-color: #1c1c1c;
+  position: sticky;
+  top: 0;
+  z-index: 90;
   height: 10vh;
   align-items: center;
 }
@@ -453,7 +479,7 @@ nav .li-navbar-interactive {
 .run-form {
   padding-top: 0.5em;
   font-size: 2rem;
-  margin-left: 1em;
+  margin-left: 0.5em;
 }
 
 .color-filter {
@@ -588,7 +614,8 @@ input[type="checkbox"]:checked + .active-dot::before {
 #products {
   display: grid;
   height: 100%;
-  width: 90%;
+  width: 70%;
+  grid-column-gap: 2em;
   grid-template-columns: 1fr 1fr 1fr;
   grid-auto-flow: dense;
   grid-row-gap: 3em;
