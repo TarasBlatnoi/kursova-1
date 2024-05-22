@@ -44,11 +44,11 @@ const PORT = process.env.PORT || 3000
 app.use(passport.initialize())
 app.use(passport.session())
 
-app.use((req, res, next) => {
-  console.log(req.session)
-  console.log(req.user)
-  next()
-})
+// app.use((req, res, next) => {
+//   console.log(req.session)
+//   console.log(req.user)
+//   next()
+// })
 
 app.use("/api/v1/users", userRoutes)
 app.use("/api/v1/products", productRoutes)

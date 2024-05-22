@@ -21,7 +21,7 @@ class FavoriteProduct {
     existInDB: `
       SELECT *
       FROM favoriteproduct
-      WHERE User_UserID = ? AND Product_ProductID = ?
+      WHERE User_UserID = ? AND Product_ProductID = ?;
     `,
   }
 
@@ -73,7 +73,7 @@ class FavoriteProduct {
 
   static async addFavoriteProduct(userId, ProductID) {
     const exist = await FavoriteProduct.isExistInDB(userId, ProductID)
-    if (!exist) {
+    if (!exist.length) {
       return FavoriteProduct.modifyFavoriteProduct(
         userId,
         ProductID,
