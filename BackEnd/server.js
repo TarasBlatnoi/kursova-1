@@ -7,7 +7,7 @@ const db = require("./database")
 const userRoutes = require("./routes/userRoutes")
 const productRoutes = require("./routes/productRoutes")
 const passport = require("passport")
-const authentificationRoutes = require("./routes/authentificationRoutes")
+const authenticationRoutes = require("./routes/authenticationRoutes")
 const favoriteRoutes = require("./routes/favoriteRoutes")
 require("./auth/passport")
 const session = db.session
@@ -53,7 +53,7 @@ app.use((req, res, next) => {
 app.use("/api/v1/users", userRoutes)
 app.use("/api/v1/products", productRoutes)
 app.use("/favorites", favoriteRoutes)
-app.use("/", authentificationRoutes)
+app.use("/", authenticationRoutes)
 
 const server = app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`)
