@@ -13,7 +13,7 @@ const asyncWrapper = (callback) => {
         args.push(req.body)
       }
       await callback(...args)
-      res.redirect("/login")
+      res.redirect("/login.html")
     } catch (err) {
       console.error(err)
       res.status(404).json({ errorMessage: err.message })
