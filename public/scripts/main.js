@@ -8,6 +8,8 @@ import Storage from "./Storage.js"
 import updateCountdown from "./updateCountdown.js"
 import user from "./user.js"
 import showHeader from "./showHeader.js"
+import filterProductsName from "./filterProductByName.js"
+
 user()
 updateCountdown()
 changeYear()
@@ -34,6 +36,11 @@ if (products) {
       })
   })
 }
+
+const searchElement = document.getElementById("search")
+
+searchElement.addEventListener("input", filterProductsName)
+
 export { UI }
 export { Storage }
 export { Products }

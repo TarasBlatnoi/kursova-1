@@ -33,7 +33,7 @@ textarea {
   --FF-OFFER: Arial;
   --FFG: Arista-Pro-Light;
   --FF: Ermilov;
-  --FS: clamp(1rem, 2.2vh, 1.5rem);
+  --FS: clamp(0.8rem, 1.5vh, 0.8rem);
   --FS-HEADER: clamp(0.66rem, 1.2vh, 0.78rem);
   /*PADDING*/
   --PADDDING-OFFER: 0.3em;
@@ -43,7 +43,7 @@ textarea {
   --mainBlack: #222;
   --mainGrey: #ececec;
   --mainSpacing: 0.1rem;
-  --mainTransition: all 0.3s linear;
+  --mainTransition: all 0.5s linear;
 }
 /*UTILITY CLASSES*/
 .offscreen {
@@ -79,8 +79,12 @@ a {
 
 a:hover,
 a:focus {
-  transform: scale(1.08);
-  transition: all 0.3s;
+  transform: scale(1.04);
+  transition: all 0.5s ease-in-out;
+}
+a:not(:hover) {
+  transform: scale(0.92);
+  transition: all 0.5s ease-in-out;
 }
 
 .header-catalog {
@@ -288,6 +292,8 @@ nav .li-navbar-interactive {
 
 .icon-filter {
   transition: 0.7s;
+  width: 10%;
+  height: auto;
 }
 .icon-filter-rotate {
   transform: rotate(180deg);
@@ -640,35 +646,62 @@ input[type="checkbox"]:checked + .active-dot::before {
   background-color: #fbfaff;
   border-radius: 0.5em;
   box-sizing: border-box;
-  height: 50vh;
+  height: max-content;
+}
+img {
+  width: 100%;
+  height: auto;
+  object-fit: fill;
 }
 
 .image-container {
-  text-align: center;
+  width: 100%;
+  height: 50%;
 }
 
-img {
-  max-width: 100%;
-  height: auto;
-  object-fit: contain;
-}
 .container {
-  padding-top: 1em;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  row-gap: 1.8em;
+  column-gap: 3em;
+
   color: #1c1c1c;
+  justify-content: space-around;
+  margin-bottom: 5px;
+  margin-top: 5px;
 }
-h3 {
-  margin-left: 1em;
-  font-size: 1rem;
-  color: #1c1c1c;
-  font-family: var(--FF);
+
+.description {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  font-size: 16px;
+  align-content: last baseline;
 }
-h5 {
-  margin-top: 2em;
-  margin-left: 1em;
-  font-size: 1rem;
-  color: #1c1c1c;
-  font-family: var(--FF);
+
+.filter-umatched {
+  display: none;
+  /* visibility: hidden; */
 }
+
+.product--info {
+  display: inline;
+  font-size: smaller;
+  color: rgba(0, 0, 0, 255);
+}
+
+.bag-btn {
+  border-radius: 15px;
+  border-width: 1px;
+  padding: 10px;
+  width: 50%;
+  font-size: 15px;
+  align-self: center;
+  background-color: #fff4db;
+}
+
 .hide {
   display: none;
 }
@@ -789,4 +822,9 @@ h5 {
 }
 .clear-cart:active {
   background-color: #daba9c;
+}
+
+.filter-unmatched {
+  display: none;
+  /* visibility: hidden; */
 }
