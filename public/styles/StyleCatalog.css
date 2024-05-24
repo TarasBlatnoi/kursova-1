@@ -306,7 +306,6 @@ nav .li-navbar-interactive {
   font-weight: 300;
   font-size: 1.8rem;
   line-height: 33px;
-  margin-right: 0.7em;
   color: #f9d423;
 }
 
@@ -335,13 +334,13 @@ nav .li-navbar-interactive {
   justify-content: space-between;
   align-items: center;
   border-radius: 1em;
-  padding-left: 2em;
 }
 .selected {
   margin-right: 0.7em;
 }
 .Select-Hide {
   display: flex;
+  justify-content: space-between;
   align-items: center;
   width: 50%;
   cursor: pointer;
@@ -469,10 +468,10 @@ nav .li-navbar-interactive {
 }
 .filter-settings {
   width: 90vh;
+
   justify-content: center;
   align-items: center;
   display: flex;
-  padding-right: 3em;
 }
 
 .color-input {
