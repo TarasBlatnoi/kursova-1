@@ -15,7 +15,8 @@ export default class Products {
         const id = item.ProductID
         const image = item.image
         const sex = item.sex
-        return { name, price, id, image, sex }
+        const productDescription = item.productDetails
+        return { name, productDescription, price, id, image, sex }
       })
       return products
     } catch (error) {
