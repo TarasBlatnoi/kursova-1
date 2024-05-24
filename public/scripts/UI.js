@@ -24,8 +24,8 @@ export default class UI {
       </div>
       <div class="container">
       <div class="description"> 
-        <h3 class="product-name"> <p class="product-brand-name">${product.name}</p><p class="product--info">${product.productDescription}</p>
-        </h3>
+        <div class="product-name"> <p class="product-brand-name">${product.name}</p><p class="product--info">${product.productDescription}</p>
+        </div>
         <h4>$${product.price}</h4>
       </div>
         <button class="bag-btn" data-id=${product.id}>

@@ -1,21 +1,20 @@
 export default function filterProductsName() {
-  const searchString = this.value
-  console.log("hello Filtered Name")
+  const searchString = this.value.toLowerCase()
 
   const productsContainer = document.querySelector(".products-center")
 
   const filteredProducts = [...productsContainer.children]
     .map((card) => {
       const productBrandName = card.querySelector(".product-brand-name")
-      const productName = productBrandName.nextElementSibling
-      return { card, productBrandName, productName }
+      const productDescription = productBrandName.nextElementSibling
+      return { card, productBrandName, productDescription }
     })
     .forEach((product) => {
-      const { card, productBrandName, productName } = product
-      console.log(card)
+      const { card, productBrandName, productDescription } = product
+
       if (
-        productBrandName.textContent.includes(searchString) ||
-        productName.textContent.includes(searchString)
+        productBrandName.textContent.toLowerCase().includes(searchString) ||
+        productDescription.textContent.toLowerCase().includes(searchString)
       ) {
         card.classList.remove("filter-unmatched")
       } else {

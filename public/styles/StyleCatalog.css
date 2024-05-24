@@ -63,8 +63,32 @@ html {
   background-color: var(--BG-COLOR);
 }
 body {
-  height: 300vh;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: 150vh;
   background-color: #1c1c1c;
+}
+.white-spot {
+  height: 130%;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: row;
+  column-gap: 2.5rem;
+  list-style: none;
+}
+
+.footer {
+  padding: 100px 30px 50px 30px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 3rem;
+  align-self: center;
+  align-items: center;
+  justify-content: center;
+  color: whitesmoke;
 }
 
 .span-courier {
@@ -647,6 +671,7 @@ input[type="checkbox"]:checked + .active-dot::before {
   border-radius: 0.5em;
   box-sizing: border-box;
   height: max-content;
+  transition: 1s;
 }
 img {
   width: 100%;
@@ -678,12 +703,17 @@ img {
   flex-direction: row;
   justify-content: space-around;
   font-size: 16px;
-  align-content: last baseline;
+  /* align-content: last baseline; */
+  align-items: last baseline;
 }
 
-.filter-umatched {
-  display: none;
+.filter-unmatched {
+  opacity: 0;
+
+  /* display: none; */
+  /* animation: fadeAnimation 0.8s forwards; */
   /* visibility: hidden; */
+  transform: scale(0);
 }
 
 .product--info {
@@ -711,9 +741,10 @@ img {
   right: 0;
   width: 100%;
   height: 100%;
-  transition: var(--mainTransition);
-  background: rgb(240, 157, 81, 0.5);
+  transition: 0.8s linear;
+  background: rgba(244, 239, 235, 0.5);
   z-index: 200;
+  opacity: 0;
   visibility: hidden;
 }
 .cart {
@@ -728,14 +759,17 @@ img {
   z-index: 203;
   background: rgb(231, 226, 221);
   padding: 1.5rem;
-  transition: var(--mainTransition);
+  transition: 0.7s ease-in-out;
   transform: translateX(100%);
 }
+
 .showCart {
   transform: translateX(0);
 }
 
 .transparentBcg {
+  opacity: 1;
+  backdrop-filter: blur(5px);
   visibility: visible;
 }
 @media screen and (min-width: 768px) {
@@ -824,7 +858,6 @@ img {
   background-color: #daba9c;
 }
 
-.filter-unmatched {
-  display: none;
-  /* visibility: hidden; */
+.product-name {
+  font-size: larger;
 }
