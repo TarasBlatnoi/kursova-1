@@ -65,7 +65,6 @@ html {
 body {
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
   height: 150vh;
   background-color: #1c1c1c;
 }

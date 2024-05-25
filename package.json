@@ -1,7 +1,16 @@
 {
   "scripts": {
     "start": "nodemon BackEnd/app.js",
-    "test": "cross-env NODE_ENV=test jest --testTimeout=5000 --forceExit"
+    "test": "cross-env NODE_ENV=test jest --testTimeout=5000 --detectOpenHandles"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "coveragePathIgnorePatterns": [
+      "/node_modules/"
+    ],
+    "setupFilesAfterEnv": [
+      "<rootDir>/tests/setupTests.js"
+    ]
   },
   "author": "",
   "license": "ISC",
@@ -36,11 +45,5 @@
   "bugs": {
     "url": "https://github.com/TarasBlatnoi/kursova-1/issues"
   },
-  "homepage": "https://github.com/TarasBlatnoi/kursova-1#readme",
-  "jest": {
-    "testEnvironment": "node",
-    "coveragePathIgnorePatterns": [
-      "/node_modules/"
-    ]
-  }
+  "homepage": "https://github.com/TarasBlatnoi/kursova-1#readme"
 }
