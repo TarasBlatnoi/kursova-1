@@ -1,0 +1,52 @@
+name: CI
+
+on: [push, pull_request]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    services:
+      mysql:
+        image: mysql:latest
+        ports:
+          - 3306:3306
+        env:
+          MYSQL_DATABASE: terabadetest
+          MYSQL_ROOT_PASSWORD: root_password
+        options: >-
+          --health-cmd="mysqladmin ping --silent"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=5
+
+    env:
+      DB_HOST: localhost
+      DB_USER: root
+      DB_NAME: terabadetest
+      DB_PASSWORD: root_password
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '14'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Wait for MySQL to be ready
+        run: |
+          until mysqladmin ping -h "localhost" --silent; do
+            echo "Waiting for MySQL..."
+            sleep 2
+          done
+
+      - name: Import database schema
+        run: mysql -h ${{ env.DB_HOST }} -u ${{ env.DB_USER }} -p${{ env.DB_PASSWORD }} ${{ env.DB_NAME }} < schema.sql
+
+      - name: Run tests
+        run: npm test
