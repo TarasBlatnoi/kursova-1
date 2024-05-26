@@ -10,6 +10,11 @@ import user from "./user.js"
 import showHeader from "./showHeader.js"
 import filterProductsName from "./filterProductByName.js"
 
+import {
+  addToFavoriteHandler,
+  updateFavoriteProducts,
+} from "./favoriteBtnHandler.js"
+
 user()
 updateCountdown()
 changeYear()
@@ -34,6 +39,14 @@ if (products) {
         ui.getBagButtons()
         ui.cartLogic()
       })
+    const intervalId = setInterval(() => {
+      if (document.readyState === "complete") {
+        document
+          .querySelectorAll("div.favorite .fa-heart")
+          .forEach((btn) => btn.addEventListener("click", addToFavoriteHandler))
+        updateFavoriteProducts().then(() => clearInterval(intervalId))
+      }
+    }, 10)
   })
 }
 

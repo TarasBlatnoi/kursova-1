@@ -28,9 +28,14 @@ export default class UI {
         </div>
         <h4>$${product.price}</h4>
       </div>
-        <button class="bag-btn" data-id=${product.id}>
+      <div class="btn--product">
+        <button class="btn bag-btn" data-id=${product.id}>
         <i class="fas fa-shopping-cart"> додати в кошик</i>
         </button>
+        <div class="favorite">
+        <i id="heart--btn" class="far fa-heart"></i>
+        </div>
+      </div>
       </div>
     </div>
       `

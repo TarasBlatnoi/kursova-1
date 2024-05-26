@@ -340,7 +340,7 @@ nav .li-navbar-interactive {
 }
 .Select-Hide {
   display: flex;
-  justify-content: space-between;
+  column-gap: 0.8rem;
   align-items: center;
   width: 50%;
   cursor: pointer;
@@ -436,6 +436,7 @@ nav .li-navbar-interactive {
   background-color: #1c1c1c;
   position: sticky;
   top: 6em;
+  font-size: 0.5rem;
   z-index: 80;
   overflow-y: auto;
   height: 90vh;
@@ -721,9 +722,7 @@ img {
   border-width: 1px;
   padding: 10px;
   width: 50%;
-  margin-bottom: 5%;
-  align-self: first baseline;
-  margin-left: 10%;
+  align-self: center;
   background-color: #fff4db;
 }
 
@@ -855,4 +854,24 @@ img {
 
 .product-name {
   font-size: larger;
+}
+
+.btn--product {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  column-gap: 5rem;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 0.5em;
+}
+
+#heart--btn {
+  transform: scale(1.8);
+  user-select: none;
+}
+
+.clicked--favorite {
+  font-weight: 900;
+  color: red;
 }
