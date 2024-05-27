@@ -718,12 +718,15 @@ img {
 }
 
 .bag-btn {
-  border-radius: 15px;
+  border-radius: 15svh;
   border-width: 1px;
   padding: 10px;
   width: 50%;
   align-self: center;
-  background-color: #fff4db;
+  background-color: #ffffff5c;
+}
+.fa-shopping-cart {
+  color: black;
 }
 
 .hide {
