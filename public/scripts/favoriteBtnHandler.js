@@ -1,6 +1,13 @@
 const url = "favorites/products"
 
 async function addToFavoriteHandler(ev) {
+  const userLogResponse = await checkUserLogIn()
+
+  if (userLogResponse.redirected) {
+    window.location.href = userLogResponse.url
+    return
+  }
+
   const allBtnProducts = document.querySelectorAll(".bag-btn[data-id]")
 
   const productId =
@@ -36,6 +43,8 @@ async function updateFavoriteProducts() {
     method: "GET",
   })
 
+  if (response.redirected) return
+
   const allProducts = (await response.json()).result
 
   allProducts.forEach((product) => {
@@ -48,6 +57,11 @@ async function updateFavoriteProducts() {
         "clicked--favorite",
       )
   })
+}
+
+async function checkUserLogIn() {
+  const response = await fetch(url, { method: "GET" })
+  return response
 }
 
 export { addToFavoriteHandler, updateFavoriteProducts }

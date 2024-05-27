@@ -38,15 +38,15 @@ if (products) {
       .then(() => {
         ui.getBagButtons()
         ui.cartLogic()
+
+        updateFavoriteProducts().then(() =>
+          document
+            .querySelectorAll("div.favorite .fa-heart")
+            .forEach((btn) =>
+              btn.addEventListener("click", addToFavoriteHandler),
+            ),
+        )
       })
-    const intervalId = setInterval(() => {
-      if (document.readyState === "complete") {
-        document
-          .querySelectorAll("div.favorite .fa-heart")
-          .forEach((btn) => btn.addEventListener("click", addToFavoriteHandler))
-        updateFavoriteProducts().then(() => clearInterval(intervalId))
-      }
-    }, 10)
   })
 }
 
