@@ -1,10 +1,10 @@
 const url = "favorites/products"
 
 async function addToFavoriteHandler(ev) {
-  const userLogResponse = await checkUserLogIn()
+  const { isUserLogIn, redirectURL } = await checkUserLogIn()
 
-  if (userLogResponse.redirected) {
-    window.location.href = userLogResponse.url
+  if (isUserLogIn) {
+    window.location.href = redirectURL
     return
   }
 
@@ -31,9 +31,6 @@ async function addToFavoriteHandler(ev) {
       ProductID: productId,
     }),
   })
-
-  if ((await response.json()).result) console.log("Operation is succeded!")
-  else console.log("Operation is failed!")
 }
 
 async function updateFavoriteProducts() {
@@ -61,7 +58,7 @@ async function updateFavoriteProducts() {
 
 async function checkUserLogIn() {
   const response = await fetch(url, { method: "GET" })
-  return response
+  return { isUserLogIn: response.redirected, redirectURL: response.url }
 }
 
 export { addToFavoriteHandler, updateFavoriteProducts }
