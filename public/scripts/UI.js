@@ -129,14 +129,22 @@ export default class UI {
     this.setCartValues(cart)
     this.populateCart(cart)
     cartBtn.addEventListener("click", this.showCart)
-    closeCartBtn.addEventListener("click", this.hideCart)
+    cartOverlay.addEventListener("click", this.hideCart)
   }
   populateCart(cart) {
     cart.forEach((item) => this.addCartItem(item))
   }
-  hideCart() {
-    cartOverlay.classList.remove("transparentBcg")
-    cartDOM.classList.remove("showCart")
+  hideCart(event) {
+    const target = event.target
+
+    if (
+      target === this ||
+      target?.closest(".close-cart")?.classList.contains("close-cart") ||
+      target?.classList?.contains("clear-cart")
+    ) {
+      cartOverlay.classList.remove("transparentBcg")
+      cartDOM.classList.remove("showCart")
+    }
   }
   cartLogic() {
     // clear cart button
@@ -180,10 +188,7 @@ export default class UI {
   clearCart() {
     let cartItems = cart.map((item) => item.id)
     cartItems.forEach((id) => this.removeItem(id))
-    while (cartContent.children.length > 0) {
-      cartContent.removeChild(cartContent.children[0])
-    }
-    this.hideCart()
+    ;[...cartContent.children].forEach((cartItem) => cartItem.remove())
   }
   removeItem(id) {
     cart = cart.filter((item) => item.id !== id)
