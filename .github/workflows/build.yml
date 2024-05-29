@@ -39,7 +39,7 @@ jobs:
         run: npm install
 
       - name: Import database schema
-        run: mysql -h ${{ env.DB_HOST }} -u ${{ env.DB_USER }} -p${{ env.DB_PASSWORD }} ${{ env.DB_NAME }} < schema.sql
+        run: mysql -h ${{ env.DB_HOST }} -u ${{ env.DB_USER }} -p${{ env.DB_PASSWORD }} ${{ env.DB_NAME_TEST }} < schema.sql
 
       - name: Run tests
         run: npm test

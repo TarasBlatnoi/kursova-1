@@ -6,7 +6,7 @@ describe("POST /register when user exists", () => {
   it("should add user to db", async () => {
     const resSecond = await request(app)
       .post("/register")
-      .send({ email: "newUser", password: "12345" })
+      .send({ email: "taras", password: "123" })
     expect(resSecond.statusCode).toBe(404)
     expect(resSecond.body.errorMessage).toBe("User with that mail exists")
   })

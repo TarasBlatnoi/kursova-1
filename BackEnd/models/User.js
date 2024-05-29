@@ -4,14 +4,14 @@ const hashPassword = require("../auth/hashPassword")
 class User {
   static sqlQueries = {
     createNewUser: `
-        INSERT INTO terabade.user (email, hashed_password)
+        INSERT INTO user (email, hashed_password)
         VALUES ( ?, ?);
         `,
     getById: `
-        SELECT * FROM terabade.user WHERE UserID = ?;
+        SELECT * FROM user WHERE UserID = ?;
         `,
     checkUnique: `
-    SELECT * FROM terabade.user WHERE email = ?;
+    SELECT * FROM user WHERE email = ?;
     `,
   }
 
