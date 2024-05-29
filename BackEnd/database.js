@@ -15,6 +15,8 @@ const access = {
   password: process.env.DB_PASSWORD,
 }
 
+console.log("This is db which used", access.database)
+
 const sessionStore = new MySQLStore(access)
 
 const promisePool = promiseMysql.createPool(access)
