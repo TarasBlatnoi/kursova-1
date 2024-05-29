@@ -36,11 +36,15 @@ class User {
 
   static async createNewUser(data) {
     const passwordHash = await hashPassword(data.password)
-    data.password = passwordHash
-    const res = await User.commitQuery(User.sqlQueries.createNewUser, data)
-    const createdUserId = res.insertId
-    const createdUser = await User.getById(createdUserId)
-    return createdUser
+    const unique = await User.checkUnique(data.email)
+    if (!unique.length) {
+      data.password = passwordHash
+      const res = await User.commitQuery(User.sqlQueries.createNewUser, data)
+      const createdUserId = res.insertId
+      const createdUser = await User.getById(createdUserId)
+      return createdUser
+    }
+    throw new Error("User with that mail exists")
   }
   static async getById(id) {
     const dataForDB = []
