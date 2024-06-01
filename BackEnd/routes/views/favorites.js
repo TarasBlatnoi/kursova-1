@@ -11,6 +11,7 @@ if (products) {
     products
       .getProducts("/favorites/products")
       .then((products) => {
+        console.log(products)
         ui.displayProducts(products)
         Storage.saveFavoriteProducts(products)
       })
