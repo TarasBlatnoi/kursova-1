@@ -42,29 +42,7 @@ export default class UI {
     })
     productsDOM.innerHTML = result
   }
-  addProducts(products) {
-    let result = ""
-    products.forEach((product) => {
-      result += `
-      <div class="card Дорожній">
-      <div class="image-container">
-        <img src=data:image/jpeg;base64,${product.image} alt="" />
-      </div>
-      <div class="container">
-      <div class="description"> 
-        <h3 class="product-name"> <p class="product-brand-name">${product.name}</p><p class="product--info">${product.productDescription}</p>
-        </h3>
-        <h4>$${product.price}</h4>
-      </div>
-        <button class="bag-btn" data-id=${product.id}>
-        <i class="fas fa-shopping-cart"> додати в кошик</i>
-        </button>
-      </div>
-    </div>
-      `
-    })
-    productsDOM.innerHTML += result
-  }
+
   getBagButtons() {
     const buttons = [...document.querySelectorAll(".bag-btn")]
     buttonsDOM = buttons

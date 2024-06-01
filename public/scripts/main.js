@@ -53,6 +53,4 @@ if (products) {
 const searchElement = document.getElementById("search")
 searchElement.addEventListener("input", filterProductsName)
 
-export { UI }
-export { Storage }
-export { Products }
+export { UI, Storage, Products }
