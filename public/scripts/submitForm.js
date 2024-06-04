@@ -24,9 +24,15 @@ function emailListener() {
   })
 }
 
+
 form.addEventListener("submit", handleSubmit)
 
 function handleSubmit(e) {
+  console.log("button pressed")
+  console.log({
+    email: emailInput.value,
+    password: passwordInput.value,
+  })
   e.preventDefault()
   fetch("/login", {
     method: "POST",

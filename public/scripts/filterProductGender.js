@@ -1,45 +1,35 @@
 import Products from "./Products.js"
 import UI from "./UI.js"
+import { updateFavoriteProducts } from "./favoriteBtnHandler.js"
+
 export default function wrapperFilterProductGender() {
-  async function filterProductGender(value) {
-    const products = new Products()
+  const sexForm = document.querySelector(".run-form")
+  const ui = new UI()
+  const products = new Products()
+  const activeDots = document
+    .querySelector(".sex-filter")
+    ?.getElementsByClassName("active")
+
+  if (!activeDots) return
+
+  async function filterProductGender(event) {
+    const target = event.target
+    if (!target.classList.contains("input-value")) return
+    target.classList.toggle("active")
+
     const allProducts = await products.getProducts("/api/v1/products")
-    const ui = new UI()
-    const labelsSex = document.querySelectorAll(".sex")
-    ui.displayProducts([])
-    labelsSex.forEach((label) => {
-      if (label.classList.contains("active")) {
-        if (label.id.toUpperCase() === value.toUpperCase()) {
-          label.classList.remove("active")
-        } else {
-          const filteredProducts = allProducts.filter(
-            (product) => product.sex.toUpperCase() === label.id.toUpperCase(),
-          )
-          ui.addProducts(filteredProducts)
-        }
-      } else {
-        if (label.id.toUpperCase() === value.toUpperCase()) {
-          label.classList.add("active")
-          const filteredProducts = allProducts.filter(
-            (product) => product.sex.toUpperCase() === value.toUpperCase(),
-          )
-          ui.addProducts(filteredProducts)
-        }
-      }
-    })
-    if (!document.querySelectorAll(".card").length) {
-      ui.displayProducts(allProducts)
-    }
+    const filteredProducts = allProducts.filter((product) =>
+      [...activeDots].some(
+        (dot) =>
+          dot.getAttribute("id").toLowerCase() === product.sex.toLowerCase(),
+      ),
+    )
+
+    ui.displayProducts(
+      !filteredProducts.length ? [...allProducts] : filteredProducts,
+    )
+    updateFavoriteProducts()
   }
-  if (document.querySelector(".left-filter")) {
-    document.querySelector(".male-filter").addEventListener("click", () => {
-      filterProductGender("male")
-    })
-    document.querySelector(".female-filter").addEventListener("click", () => {
-      filterProductGender("female")
-    })
-    document.querySelector(".unisex-filter").addEventListener("click", () => {
-      filterProductGender("unisex")
-    })
-  }
+
+  sexForm.addEventListener("click", filterProductGender)
 }
