@@ -702,12 +702,9 @@ img {
 }
 
 .filter-unmatched {
-  opacity: 0;
-
-  /* display: none; */
-  /* animation: fadeAnimation 0.8s forwards; */
-  /* visibility: hidden; */
-  transform: scale(0);
+  display: none;
+  animation: fadeAnimation 0.8s forwards;
+  visibility: hidden;
 }
 
 .product--info {

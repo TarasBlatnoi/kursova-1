@@ -29,5 +29,5 @@ export default function wrapperFilterProductGender() {
     updateFavoriteProducts()
   }
 
-  sexForm.addEventListener("click", filterProductGender)
+  sexForm?.addEventListener("click", filterProductGender)
 }
