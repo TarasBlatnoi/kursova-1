@@ -15,7 +15,7 @@ export default function wrapperFilterProductGender() {
     if (!target.classList.contains("input-value")) return
     target.classList.toggle("active")
 
-    const allProducts = await products.getProducts("/api/v1/products")
+    const allProducts = JSON.parse(localStorage.getItem("products"))
     const filteredProducts = allProducts.filter((product) =>
       [...activeDots].some(
         (dot) =>
