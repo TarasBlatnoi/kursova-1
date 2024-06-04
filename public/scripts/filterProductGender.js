@@ -10,8 +10,6 @@ export default function wrapperFilterProductGender() {
     .querySelector(".sex-filter")
     ?.getElementsByClassName("active")
 
-  if (!activeDots) return
-
   async function filterProductGender(event) {
     const target = event.target
     if (!target.classList.contains("input-value")) return
