@@ -5,7 +5,6 @@ import { updateFavoriteProducts } from "./favoriteBtnHandler.js"
 export default function wrapperFilterProductGender() {
   const sexForm = document.querySelector(".run-form")
   const ui = new UI()
-  const products = new Products()
   const activeDots = document
     .querySelector(".sex-filter")
     ?.getElementsByClassName("active")
