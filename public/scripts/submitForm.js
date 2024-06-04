@@ -7,7 +7,6 @@ const form = document.getElementById("login-form")
 const emailInput = document.getElementById("email")
 const passwordInput = document.getElementById("password")
 const inputBox = document.querySelector(".inputbox")
-const applyBtn = document.getElementById("applyBtn")
 function emailListener() {
   emailInput.addEventListener("input", () => {
     const email = emailInput.value
@@ -25,7 +24,8 @@ function emailListener() {
   })
 }
 
-applyBtn.addEventListener("click", handleSubmit)
+
+form.addEventListener("submit", handleSubmit)
 
 function handleSubmit(e) {
   console.log("button pressed")
