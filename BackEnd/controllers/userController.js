@@ -23,9 +23,6 @@ const asyncWrapper = (callback) => {
 
 const createNewUser = asyncWrapper(User.createNewUser)
 const getUserById = asyncWrapper(User.getById)
-// const createProduct = asyncWrapper(Product.create)
-// const updateProduct = asyncWrapper(Product.updateById)
-// const deleteProduct = asyncWrapper(Product.deleteById)
 
 module.exports = {
   createNewUser,

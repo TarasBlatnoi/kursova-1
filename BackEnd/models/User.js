@@ -4,14 +4,14 @@ const hashPassword = require("../auth/hashPassword")
 class User {
   static sqlQueries = {
     createNewUser: `
-        INSERT INTO terabade.user (email, hashed_password)
+        INSERT INTO user (email, hashed_password)
         VALUES ( ?, ?);
         `,
     getById: `
-        SELECT * FROM terabade.user WHERE UserID = ?;
+        SELECT * FROM user WHERE UserID = ?;
         `,
     checkUnique: `
-    SELECT * FROM terabade.user WHERE email = ?;
+    SELECT * FROM user WHERE email = ?;
     `,
   }
 
@@ -36,11 +36,15 @@ class User {
 
   static async createNewUser(data) {
     const passwordHash = await hashPassword(data.password)
-    data.password = passwordHash
-    const res = await User.commitQuery(User.sqlQueries.createNewUser, data)
-    const createdUserId = res.insertId
-    const createdUser = await User.getById(createdUserId)
-    return createdUser
+    const unique = await User.checkUnique(data.email)
+    if (!unique.length) {
+      data.password = passwordHash
+      const res = await User.commitQuery(User.sqlQueries.createNewUser, data)
+      const createdUserId = res.insertId
+      const createdUser = await User.getById(createdUserId)
+      return createdUser
+    }
+    throw new Error("User with that mail exists")
   }
   static async getById(id) {
     const dataForDB = []

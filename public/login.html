@@ -8,23 +8,18 @@
     <section>
       <div class="form-box">
         <div class="form-value">
-          <form action="/login" method="post">
-            <h2 id="Login">Log in</h2>
+          <form id="login-form">
+            <h2 class="Login">Log in</h2>
             <div class="inputbox full-width">
               <input type="text" id="email" required name="email" />
-              <label for="">Email</label>
+              <label for="" class="email-label">Email</label>
             </div>
             <div class="inputbox full-width">
               <input type="password" id="password" required name="password" />
-              <label for="">Password</label>
-            </div>
-            <div class="button-case">
-              <button type="button" id="loginBtn" class="wide-btn disable">
-                Log In
-              </button>
+              <label for="" class="password-label">Password</label>
             </div>
             <div class="button-case applyBtn">
-              <button type="submit" id="applyBtn" class="narrow-btn">
+              <button id="applyBtn" type="submit" class="narrow-btn">
                 Apply
               </button>
             </div>
@@ -34,5 +29,6 @@
         </div>
       </div>
     </section>
+    <script type="module" src="scripts/submitForm.js" defer></script>
   </body>
 </html>

@@ -8,7 +8,10 @@ const MySQLStore = require("express-mysql-session")(session)
 const access = {
   host: process.env.DB_HOST,
   user: process.env.DB_USER,
-  database: process.env.DB_NAME,
+  database:
+    process.env.NODE_ENV === "test"
+      ? process.env.DB_NAME_TEST
+      : process.env.DB_NAME,
   password: process.env.DB_PASSWORD,
 }
 
