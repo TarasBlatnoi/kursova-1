@@ -18,6 +18,7 @@ export default function wrapperFilterProductGender() {
     target.classList.toggle("active")
 
     const allProducts = await products.getProducts("/api/v1/products")
+
     const filteredProducts = allProducts.filter((product) =>
       [...activeDots].some(
         (dot) =>
@@ -26,7 +27,11 @@ export default function wrapperFilterProductGender() {
     )
 
     ui.displayProducts(
-      !filteredProducts.length ? [...allProducts] : filteredProducts,
+      !filteredProducts.length && activeDots.length
+        ? []
+        : !filteredProducts.length
+          ? allProducts
+          : filteredProducts,
     )
     updateFavoriteProducts()
   }
