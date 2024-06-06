@@ -6,12 +6,13 @@ export default function showHeader() {
     navbar.classList.remove("animated-hide")
     navbar.classList.add("animated-show")
     navbar.style.display = "flex"
+    console.log("mouseover")
   })
   ul.addEventListener("mouseout", function (event) {
     const bounds = ul.getBoundingClientRect()
-    const mouseX = event.clientX
+    let mouseX = event.clientX
     const mouseY = event.clientY
-
+    mouseX++
     // Check if the mouse is leaving from the top
     if (mouseY < bounds.top) {
       navbar.classList.remove("animated-show")

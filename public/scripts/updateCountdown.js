@@ -2,8 +2,7 @@ export default function updateCountdownWrapper() {
   const endDate = new Date("2026-06-30T00:00:00")
 
   function updateCountdown() {
-    const now = new Date()
-
+    const now = Date.now()
     const timeDiff = endDate - now
 
     const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24))

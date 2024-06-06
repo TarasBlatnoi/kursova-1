@@ -197,7 +197,7 @@ label[for="search"] {
   margin: 1.7em;
   margin-left: auto;
 }
-nav .li-navbar-interactive {
+.li-navbar-interactive {
   padding-left: 4em;
   margin-bottom: 0.7em;
 }
