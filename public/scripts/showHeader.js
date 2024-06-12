@@ -32,11 +32,8 @@ export default function showHeader() {
     ul.style.height = "100%"
   })
   navbar.addEventListener("mouseout", function (event) {
-    const relatedTarget = event.relatedTarget
-    if (!navbar.contains(relatedTarget)) {
-      navbar.classList.remove("animated-show")
-      navbar.classList.add("animated-hide")
-      ul.style.height = "30%"
-    }
+    navbar.classList.remove("animated-show")
+    navbar.classList.add("animated-hide")
+    ul.style.height = "30%"
   })
 }
