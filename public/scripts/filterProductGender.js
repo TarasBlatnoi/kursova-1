@@ -5,9 +5,14 @@ import { updateFavoriteProducts } from "./favoriteBtnHandler.js"
 export default function wrapperFilterProductGender() {
   const sexForm = document.querySelector(".run-form")
   const ui = new UI()
+
   const activeDots = document
     .querySelector(".sex-filter")
     ?.getElementsByClassName("active")
+
+
+  if (!activeDots) return
+
 
   async function filterProductGender(event) {
     const target = event.target
@@ -15,6 +20,7 @@ export default function wrapperFilterProductGender() {
     target.classList.toggle("active")
 
     const allProducts = JSON.parse(localStorage.getItem("products"))
+
     const filteredProducts = allProducts.filter((product) =>
       [...activeDots].some(
         (dot) =>
@@ -23,10 +29,16 @@ export default function wrapperFilterProductGender() {
     )
 
     ui.displayProducts(
-      !filteredProducts.length ? [...allProducts] : filteredProducts,
+
+      !filteredProducts.length && activeDots.length
+        ? []
+        : !filteredProducts.length
+          ? allProducts
+          : filteredProducts,
     )
     updateFavoriteProducts()
   }
 
   sexForm?.addEventListener("click", filterProductGender)
+
 }

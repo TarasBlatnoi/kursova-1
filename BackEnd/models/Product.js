@@ -4,7 +4,7 @@ class Product {
   static sqlQueries = {
     getAll: `
         SELECT * 
-        FROM product;
+        FROM Product;
         `,
   }
 
